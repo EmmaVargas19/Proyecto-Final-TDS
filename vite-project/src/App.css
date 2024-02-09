@@ -4,12 +4,17 @@
   box-sizing: border-box;
 }
 
+:root {
+  --colorNav: #278fe4;
+}
+
 .navbar {
   font-weight: bold;
   position: sticky;
   top: 0;
-  background-color: blue;
+  background-color: var(--colorNav);
   padding: 1rem;
+  border-radius: 1.5rem;
 }
 
 .navbar ul {
