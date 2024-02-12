@@ -48,7 +48,7 @@ export function Login() {
               onChange={(event) => setPassword(event.target.value)}/>
             <br />
             <button type="submit" className="button-field">
-              Login
+              Iniciar
             </button>
           </form>
           <div className="links-container">
