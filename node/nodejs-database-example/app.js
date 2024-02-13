@@ -1,13 +1,20 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser'); // Import body-parser to parse incoming request bodies
 
 const app = express();
 const PORT = 3000;
 
-const User = mongoose.model('User', {
+// Parse JSON bodies
+app.use(bodyParser.json());
+
+// Define User schema
+const userSchema = new mongoose.Schema({
     username: String,
     password: String,
 });
+
+const User = mongoose.model('User', userSchema);
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/nodejs_database', {
@@ -22,31 +29,7 @@ db.once('open', () => {
     console.log('Connected to MongoDB');
 });
 
-// Define a data model (example)
-const Data = mongoose.model('Data', {
-    name: String,
-});
-
-// Route to fetch data
-app.get('/data', async (req, res) => {
-    try {
-        const data = await Data.find();
-        res.json(data);
-    } catch (error) {
-        res.status(500).send(error.message);
-    }
-});
-
-// Define a simple route
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
-});
-
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
-
+// Route to handle user registration
 app.post('/register', async (req, res) => {
     try {
         const { username, password } = req.body;
@@ -67,39 +50,9 @@ app.post('/register', async (req, res) => {
     }
 });
 
-app.post('/login', async (req, res) => {
-    try {
-        const { username, password } = req.body;
+// Define other routes and middleware as needed...
 
-        // Check if the user exists
-        const user = await User.findOne({ username, password });
-        if (!user) {
-            return res.status(401).json({ message: 'Invalid credentials' });
-        }
-
-        // You may use more secure authentication mechanisms in a real application
-        res.json({ message: 'Login successful' });
-    } catch (error) {
-        res.status(500).send(error.message);
-    }
-});
-
-app.post('/save-data', async (req, res) => {
-    try {
-        const { username, data } = req.body;
-
-        // Find the user
-        const user = await User.findOne({ username });
-        if (!user) {
-            return res.status(404).json({ message: 'User not found' });
-        }
-
-        // Save data for the user
-        user.data = data;
-        await user.save();
-
-        res.json({ message: 'Data saved successfully' });
-    } catch (error) {
-        res.status(500).send(error.message);
-    }
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
