@@ -12,11 +12,8 @@
   font-weight: bold;
   position: sticky;
   top: 0;
-<<<<<<< HEAD
   background-color: skyblue;
-=======
   background-color: var(--colorNav);
->>>>>>> 77633e9d7ce13f9eebfcb9a94583553e71e60e67
   padding: 1rem;
   border-radius: 1.5rem;
 }
