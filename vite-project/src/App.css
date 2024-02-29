@@ -25,9 +25,13 @@
   list-style: none;
 }
 
+.navbar img {
+  height: 100%;
+  width: 5rem;
+}
+
 .hijo {
   display: flex;
   gap: 1rem;
+  align-items: center;
 }
-
-
