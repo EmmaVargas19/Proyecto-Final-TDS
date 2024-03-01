@@ -50,9 +50,25 @@ app.post('/register', async (req, res) => {
     }
 });
 
-// Define other routes and middleware as needed...
 
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+
+app.post('/login', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+
+        const user = await User.findOne({ username, password });
+        if (!user) {
+            return res.status(401).json({ message: 'Invalid credentials' });
+        }
+
+
+        res.json({ message: 'Login successful' });
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
 });
