@@ -18,6 +18,9 @@ export function NavBarr() {
     </ul>
     </div>
     <Outlet/>
+    <footer className="footerContainer">
+      <p>Copyright © EU-Productions 2023</p>
+    </footer>
     </>
   )
 }
