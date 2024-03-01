@@ -8,7 +8,7 @@ import { Inicio } from "./Inicio";
 
 function App() {
   return (
-    <>
+    <div className="bodyContent">
       <Routes>
         <Route path="/" element={<NavBarr/>}>
           <Route index element={<Inicio/>}/>
@@ -17,8 +17,8 @@ function App() {
           <Route path="/login" element={<Login/>}/>
         </Route>
       </Routes>
-    </>
-  )
+    </div>
+  );
 }
 
 export default App

@@ -1,10 +1,10 @@
-import React from 'react';
+import {useState} from 'react';
 import './Login.css';
 
 export function Login() {
 
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const handleSubmit = (event) => {
 
     event.preventDefault();

@@ -7,6 +7,7 @@ export function NavBarr() {
     <div className="navbar">
     <ul>
     <div className="hijo">
+    <img src="src/assets/WhatsApp Image 2024-02-29 at 2.26.29 PM.jpeg" alt="" />
     <li><Link to={'/'}>Inicio</Link></li>
     <li><Link to={'/sobrenosotros'}>Sobre nosotros</Link></li>
     </div>
@@ -17,6 +18,9 @@ export function NavBarr() {
     </ul>
     </div>
     <Outlet/>
+    <footer className="footerContainer">
+      <p>Copyright © EU-Productions 2023</p>
+    </footer>
     </>
   )
 }
