@@ -8,6 +8,12 @@
   --colorNav: #278fe4;
 }
 
+.bodyContent {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .navbar {
   font-weight: bold;
   position: sticky;
@@ -16,6 +22,7 @@
   background-color: var(--colorNav);
   padding: 1rem;
   border-radius: 1.5rem;
+  z-index: 2;
 }
 
 .navbar ul {
@@ -34,4 +41,84 @@
   display: flex;
   gap: 1rem;
   align-items: center;
+}
+
+.sobreNosotros {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  background-color: gray;
+  width: 50%;
+  margin: 2rem auto;
+  padding: 1.5rem;
+}
+
+.carousel {
+  margin-top: 2rem;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slide-container {
+  height: 30rem;
+  display: flex;
+  transition: margin-left 0.5s ease;
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex: 1 0 0;
+}
+
+.slide-image {
+  width: 100%;
+  height: auto;
+  transition: opacity 0.5s ease;
+}
+
+.slide-message {
+  position: absolute;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  color: white;
+  padding: 1rem; /* Espacio alrededor del mensaje */
+}
+
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  color: gray;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
+
+.prev-button:hover,
+.next-button:hover {
+  color: white;
+}
+
+.footerContainer {
+  margin-top: auto;
+  background-color: var(--colorNav);
+  padding: 1rem;
+  text-align: center;
 }
