@@ -21,7 +21,6 @@
   background-color: skyblue;
   background-color: var(--colorNav);
   padding: 1rem;
-  border-radius: 1.5rem;
   z-index: 2;
 }
 
@@ -54,7 +53,6 @@
 }
 
 .carousel {
-  margin-top: 2rem;
   position: relative;
   width: 100%;
   overflow: hidden;
