@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import { motion } from 'framer-motion';
 import './App.css'
 
@@ -12,6 +12,10 @@ export function Inicio() {
     {img: "src/assets/img5.jpeg", message: "Soy un ejemplo 5"}
     ];
 
+
+useEffect(()=>{
+  setInterval(goToNextSlide, 3000);
+},[])
     const goToNextSlide = () => {
       setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
     };
