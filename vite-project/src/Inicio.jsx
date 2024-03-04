@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react'
 import { motion } from 'framer-motion';
+import { SobreNosotros } from './SobreNosotros';
 import './App.css'
 
 export function Inicio() {
@@ -25,7 +26,8 @@ useEffect(()=>{
     };
   
   return (
-    <div className="carousel">
+    <>
+    <div className='carousel'>
       <motion.div
         className="slide-container"
         style={{
@@ -54,5 +56,7 @@ useEffect(()=>{
       <button onClick={goToPrevSlide} className="prev-button">◀</button>
       <button onClick={goToNextSlide} className="next-button">▶</button>
     </div>
+    <SobreNosotros/>
+    </>
   )
 }

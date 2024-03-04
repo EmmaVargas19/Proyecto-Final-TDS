@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import {NavBarr} from './NavBarr'
-import {SobreNosotros} from './SobreNosotros'
+import { Eventos } from "./Eventos";
 import {Register} from './Register'
 import {Login} from './Login'
 import './App.css'
@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<NavBarr/>}>
           <Route index element={<Inicio/>}/>
-          <Route path="/eventos" element={<SobreNosotros/>}/>
+          <Route path="/eventos" element={<Eventos/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
         </Route>
