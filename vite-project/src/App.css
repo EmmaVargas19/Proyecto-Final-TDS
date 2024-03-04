@@ -114,6 +114,22 @@
   color: white;
 }
 
+.evento {
+  color: black;
+  border: 0.3rem solid red;
+}
+
+.evento img {
+  width: 100%;
+  height: 10rem;
+}
+.gridejem {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
 .footerContainer {
   margin-top: auto;
   background-color: var(--colorNav);
