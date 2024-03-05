@@ -10,10 +10,13 @@ function normal (){
     setUser("normal")
 }
 
-function toastify (value){
+function toastifye (value){
     toast.error(value)
 }
 
+function toastifys (value){
+    toast.success(value)
+}
 
 function ejem (){
     setUser("ejem")
@@ -23,7 +26,8 @@ return (
         user,
         ejem,
         normal,
-        toastify
+        toastifye,
+        toastifys
     }}>
         {children}
     </contextName.Provider>
