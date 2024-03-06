@@ -1,6 +1,7 @@
 import { ToastContainer } from 'react-toastify';
 import { useContext } from "react";
 import { contextName } from "./context/myContext";
+import { NoEventos } from "./NoEventos";
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css'
 
@@ -31,9 +32,16 @@ const mapeo = events.map((obj) => (
 
 
   return (
+    <>
+    <h2>Eventos Activos</h2>
     <div className='gridejem'>
         {mapeo}
         <ToastContainer/>
     </div>
+    <h2>Eventos donde estoy alistado</h2>
+    <div>
+        {user ? <p>Evento 1</p> : <NoEventos/>}
+    </div>
+    </>
   )
 }
