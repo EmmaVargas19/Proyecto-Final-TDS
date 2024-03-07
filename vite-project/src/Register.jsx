@@ -1,24 +1,28 @@
-import React, { useState } from 'react';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { contextName } from './context/myContext';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Register.css';
 
 export function Register() {
-  const [fullname, setFullname] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword, toastifye, toastifys} = useContext(contextName);
 
-    if (password !== confirmPassword) {
-      alert('Las contraseñas no coinciden.');
-      return;
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    if (fullname && email && password) {
-      alert('Registro exitoso');
+    if (user && password && password === confirmPassword) {
+      if (localStorage.getItem(`${user}`)) {
+        toastifye('El usuario ya existe, por favor elige otro nombre de usuario');
+      } else {
+        localStorage.setItem(`${user}`, JSON.stringify({password: password}));
+        toastifys('Cuenta creada exitosamente');
+      }
+    } else if (password !== confirmPassword) {
+      toastifye('Las contraseñas no coinciden');
     } else {
-      alert('Por favor, complete todos los campos.');
+      toastifye('Por favor, llena todos los campos');
     }
   };
 
@@ -36,60 +40,50 @@ export function Register() {
         <form onSubmit={handleSubmit}>
           <h2 className="card-title">Crear Cuenta</h2>
           <div className="form-group">
-            {/* <label className="input-label" htmlFor="fullname">Nombre Completo</label> */}
+            <label className="input-label" htmlFor="user">Nombre Completo</label>
             <input
               className="input-field"
               type="text"
-              id="fullname"
+              id="user"
               placeholder="Nombre Completo"
-              value={fullname}
-              onChange={(event) => setFullname(event.target.value)}
+              value={user}
+              onInput={(e) => setUser(e.target.value)}
             />
           </div>
           <div className="form-group">
-            {/* <label className="input-label" htmlFor="email">Correo Electronico</label> */}
-            <input
-              className="input-field"
-              type="email"
-              id="email"
-              placeholder="Correo Electronico"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-            />
-          </div>
-          <div className="form-group">
-            {/* <label className="input-label" htmlFor="password">Contraseña</label> */}
+            <label className="input-label" htmlFor="password">Contraseña</label>
             <input
               className="input-field"
               type="password"
               id="password"
               placeholder="Contraseña"
               value={password}
-              onChange={(event) => setPassword(event.target.value)}
+              onInput={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className="form-group">
-            {/* <label className="input-label" htmlFor="confirm-password">Confirmar Contraseña</label> */}
+            <label className="input-label" htmlFor="confirm-password">Confirmar Contraseña</label>
             <input
               className="input-field"
               type="password"
               id="confirm-password"
               placeholder="Confirmar Contraseña"
               value={confirmPassword}
-              onChange={(event) => setConfirmPassword(event.target.value)}
+              onInput={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
-          <button type="submit" className="button-field">
+          <button className="button-field">
             Crear Nueva Cuenta
           </button>
         </form>
         <div className="links-container">
           <span>¿Ya tienes una cuenta? </span>
-          <a href="./Login" className="link-register">
-            Iniciar Sesion
-          </a>
+          <Link to="/login" className="link-forgot">
+              tienes cuenta? Logueate
+            </Link>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }
