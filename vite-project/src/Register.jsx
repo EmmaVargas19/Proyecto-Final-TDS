@@ -11,7 +11,6 @@ const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (user && password && password === confirmPassword) {
       if (localStorage.getItem(`${user}`)) {
         toastifye('El usuario ya existe, por favor elige otro nombre de usuario');
@@ -19,6 +18,8 @@ const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword
         localStorage.setItem(`${user}`, JSON.stringify({password: password}));
         toastifys('Cuenta creada exitosamente');
       }
+    } else if (password && confirmPassword === ""){
+      toastifye('Por favor, llena el campo de confirmacion');
     } else if (password !== confirmPassword) {
       toastifye('Las contraseñas no coinciden');
     } else {
