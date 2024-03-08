@@ -1,22 +1,25 @@
 import { useContext } from 'react';
 import { contextName } from './context/myContext';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import { Link } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Login() {
 
-const {user,setUser,password,setPassword} = useContext(contextName)
-  
-const handleSubmit = (event) => {
+const {user,setUser,password,setPassword, localStorageGet, toastifye, setLogged} = useContext(contextName)
+const navigate = useNavigate();
 
-    event.preventDefault();
-    if (user === 'admin' && password === 'password') {
-      alert('Inicio de sesión exitoso');
+const handleSubmit = (e) => {
+    e.preventDefault();
+    if (localStorageGet() && JSON.parse(localStorageGet()).password === password) {
+      setLogged(true);
+      navigate('/');
     } else {
-      alert('Nombre de usuario o contraseña incorrectos');
+      toastifye('Usuario o contraseña incorrectos');
     }
   };
-
 
   return (
 
@@ -50,15 +53,12 @@ const handleSubmit = (event) => {
             </button>
           </form>
           <div className="links-container">
-{/*             <a href="#" className="link-forgot">
-            ¿Has olvidado tu contraseña?
-            </a> */}
-            <span> | </span>
             <Link to="/register" className="link-forgot">
               No tienes cuenta? Registrate
             </Link>
           </div>
       </div> 
+      <ToastContainer />
     </div>
   );
 }

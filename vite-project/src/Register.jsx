@@ -7,25 +7,27 @@ import './Register.css';
 
 export function Register() {
 
-const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword, toastifye, toastifys} = useContext(contextName);
+const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword, localStorageSave, localStorageGet, toastifye, toastifys} = useContext(contextName);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (user && password && password === confirmPassword) {
-      if (localStorage.getItem(`${user}`)) {
-        toastifye('El usuario ya existe, por favor elige otro nombre de usuario');
-      } else {
-        localStorage.setItem(`${user}`, JSON.stringify({password: password}));
-        toastifys('Cuenta creada exitosamente');
-      }
-    } else if (password && confirmPassword === ""){
+
+    if(localStorageGet()){
+      toastifye('El usuario ya existe, por favor elige otro nombre de usuario');
+    } else if (user && password && password === confirmPassword) {
+      localStorageSave();
+      toastifys('Cuenta creada exitosamente');
+    } else if (user === ""){
+      toastifye('Por favor, llena el campo de usuario')
+    } else if (password && confirmPassword === "") {
       toastifye('Por favor, llena el campo de confirmacion');
     } else if (password !== confirmPassword) {
       toastifye('Las contraseñas no coinciden');
     } else {
       toastifye('Por favor, llena todos los campos');
     }
-  };
+  }
+  
 
   return (
     <div className="register-container">
@@ -38,7 +40,7 @@ const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword
             className="logo"
           />
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='formPle'>
           <h2 className="card-title">Crear Cuenta</h2>
           <div className="form-group">
             <label className="input-label" htmlFor="user">Nombre Completo</label>
@@ -78,7 +80,6 @@ const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword
           </button>
         </form>
         <div className="links-container">
-          <span>¿Ya tienes una cuenta? </span>
           <Link to="/login" className="link-forgot">
               tienes cuenta? Logueate
             </Link>

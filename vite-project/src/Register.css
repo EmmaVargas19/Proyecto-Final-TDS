@@ -1,106 +1,107 @@
 .register-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-  }
-  
-  .card-container {
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 2px 5px rgba(16, 182, 243, 0.757);
-    width: 425px;
-    text-align: center;
-  }
-  
-  .card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #278fe4;
-  }
-  
-  .input-field {
-    background-color: #fff;
-    color: #000000;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-radius: 10px 10px 5px 5px;
-    padding: 8px 12px;
-    width: 90%;
-    margin-bottom: 20px;
-    font-size: 1.1rem;
-  }
-  
-  .button-field {
-    padding: 8px 10px;
-    background-color: #278fe4;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    width: 90%;
-  }
-  
-  .button-field:hover {
-    background-color: #45a049;
-  }
-  
-  .links-container {
-    margin-top: 15px;
-    font-size: 0.9rem;
-    color: #777777;
-    display: flex;
-    justify-content: space-between;
-    width: 95%;
-  }
-  
-  .links-container a {
-    color: #777;
-    text-decoration: none;
-    margin: 0 5px;
-  }
-  
-  .links-container a:hover {
-    color: #278fe4;
-  }
-  
-  .links-container span {
-    color: #ccc;
-  }
-  
-  .input-field::placeholder {
-    color: #777;
-    font-weight: bold;
-  }
-  
-  .input-label {
-    color: #278fe4;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .create-account-button {
-    margin-top: 20px;
-  }
-  
-  .sign-up-link {
-    display: block;
-    text-align: center;
-    margin-top: 15px;
-    font-size: 0.9rem;
-    color: #777;
-  }
-  
-  .sign-up-link:hover {
-    color: #278fe4;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.card-container {
+  background-color: red;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(16, 243, 46, 0.757) !important;
+  width: 425px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #278fe4;
+}
+
+.input-field {
+  background-color: #fff;
+  color: #000000;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 10px 10px 5px 5px;
+  padding: 8px 12px;
+  width: 90%;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.button-field {
+  padding: 8px 10px;
+  background-color: #278fe4;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  width: 90%;
+  transition: background-color 0.2s ease;
+}
+
+.button-field:hover {
+  background-color: #45a049;
+}
+
+.links-container {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #777777;
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+
+.links-container a {
+  color: #777;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.links-container a:hover {
+  color: #278fe4;
+}
+
+.links-container span {
+  color: #ccc;
+}
+
+.input-field::placeholder {
+  color: #777;
+  font-weight: bold;
+}
+
+.input-label {
+  color: #278fe4;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.create-account-button {
+  margin-top: 20px;
+}
+
+.sign-up-link {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.sign-up-link:hover {
+  color: #278fe4;
+}
