@@ -1,6 +1,6 @@
 import { ToastContainer } from 'react-toastify';
 import { useContext } from "react";
-import { contextName } from "./context/myContext";
+import { contextName } from "./context/MyContext.jsx";
 import { NoEventos } from "./NoEventos";
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css'

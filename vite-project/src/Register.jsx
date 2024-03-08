@@ -4,6 +4,8 @@ import { contextName } from './context/myContext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Register.css';
+import 'boxicons';
+import './Login.jsx';
 
 export function Register() {
 
@@ -24,68 +26,56 @@ const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword
     } else if (password !== confirmPassword) {
       toastifye('Las contraseñas no coinciden');
     } else {
-      toastifye('Por favor, llena todos los campos');
+      alert('Por favor, complete todos los campos.');
     }
   }
   
 
   return (
-    <div className="register-container">
-      <div className="card-container">
-        <div className="logo-container">
-          <img
-            src="https://www.gob.mx/cms/uploads/article/main_image/108950/imagenes_750x392-05.jpg"
-            width="300"
-            alt="Logo"
-            className="logo"
-          />
+  <div className="container">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'></link>
+    <div className="container-form">
+      <div className="information">
+        <div className="info-childs">
+          <h2>Bienvenido</h2>
+          <p>Para unirse a nuestra comunidad, inicie sesión con sus datos</p>
+          <input type="button" value="Inicio Sesión" id="sing-in"/>
         </div>
-        <form onSubmit={handleSubmit} className='formPle'>
-          <h2 className="card-title">Crear Cuenta</h2>
-          <div className="form-group">
-            <label className="input-label" htmlFor="user">Nombre Completo</label>
-            <input
-              className="input-field"
-              type="text"
-              id="user"
-              placeholder="Nombre Completo"
-              value={user}
-              onInput={(e) => setUser(e.target.value)}
-            />
+     </div>
+    <div className="form-information">
+        <div className="form-information-childs">
+          <h2>Crear Una Cuenta</h2>
+          <div className="icons">
+            <i class='bx bxl-google bx-md'></i>
+            <i class='bx bxl-github bx-md' ></i>
+            <i class='bx bxl-facebook bx-md'></i>
           </div>
-          <div className="form-group">
-            <label className="input-label" htmlFor="password">Contraseña</label>
-            <input
-              className="input-field"
-              type="password"
-              id="password"
-              placeholder="Contraseña"
-              value={password}
-              onInput={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div className="form-group">
-            <label className="input-label" htmlFor="confirm-password">Confirmar Contraseña</label>
-            <input
-              className="input-field"
-              type="password"
-              id="confirm-password"
-              placeholder="Confirmar Contraseña"
-              value={confirmPassword}
-              onInput={(e) => setConfirmPassword(e.target.value)}
-            />
-          </div>
-          <button className="button-field">
-            Crear Nueva Cuenta
-          </button>
-        </form>
-        <div className="links-container">
+          <p>Correo para registrarte</p>
+          <form className="form" onSubmit={handleSubmit}>
+            <label>
+              <box-icon name='user' ></box-icon>
+              <input type="text" placeholder="Nombre Completo" value={user}
+              onInput={(e) => setUser(e.target.value)}/>
+            </label>
+            <label>
+              <box-icon name='lock-alt' ></box-icon>
+              <input type="password" placeholder="Contraseña" value={password}
+              onInput={(e) => setPassword(e.target.value)}/>
+              </label>
+              <label>
+                <box-icon name='lock-alt' ></box-icon>
+                <input type="password" placeholder="Contraseña de confirmacion" value={confirmPassword}
+              onInput={(e) => setConfirmPassword(e.target.value)}/>
+              </label>
+              <input type="submit" value="Registrar" />
+          </form>
           <Link to="/login" className="link-forgot">
               tienes cuenta? Logueate
-            </Link>
+           </Link>
         </div>
       </div>
-      <ToastContainer />
+      <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     </div>
+  </div>  
   );
 }
