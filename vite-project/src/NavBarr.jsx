@@ -1,8 +1,11 @@
 import { Link, Outlet } from "react-router-dom";
+import { useContext } from "react";
+import { contextName } from "./context/myContext";
 import './App.css'
 
 
 export function NavBarr() {
+  const {user, setUser, setPassword, logged, setLogged, setShowedToast} = useContext(contextName)
   return (
     <>
     <div className="navbar">
@@ -15,12 +18,13 @@ export function NavBarr() {
     <div className="hijo">
     <li><Link to={'/register'}>Registrarse</Link></li>
     <li><Link to={'/login'}>Iniciar sesión</Link></li>
+    {user && logged ? <li><button onClick={()=>{setLogged(false); setUser(""); setPassword(""); setShowedToast(false)}}>Cerrar sesión</button></li> : null}
     </div>
     </ul>
     </div>
     <Outlet/>
     <footer className="footerContainer">
-      <p>Copyright © EU-Productions 2023</p>
+      <p>Copyright © RenovaTech 2023-2024</p>
     </footer>
     </>
   )

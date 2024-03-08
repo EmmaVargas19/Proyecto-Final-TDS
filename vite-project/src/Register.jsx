@@ -1,28 +1,35 @@
-import React, { useState } from 'react';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { contextName } from './context/myContext';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Register.css';
 import 'boxicons';
 import './Login.jsx';
 
 export function Register() {
-  const [fullname, setFullname] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword, localStorageSave, localStorageGet, toastifye, toastifys} = useContext(contextName);
 
-    if (password !== confirmPassword) {
-      alert('Las contraseñas no coinciden.');
-      return;
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    if (fullname && email && password) {
-      alert('Registro exitoso');
+    if(localStorageGet()){
+      toastifye('El usuario ya existe, por favor elige otro nombre de usuario');
+    } else if (user && password && password === confirmPassword) {
+      localStorageSave();
+      toastifys('Cuenta creada exitosamente');
+    } else if (user === ""){
+      toastifye('Por favor, llena el campo de usuario')
+    } else if (password && confirmPassword === "") {
+      toastifye('Por favor, llena el campo de confirmacion');
+    } else if (password !== confirmPassword) {
+      toastifye('Las contraseñas no coinciden');
     } else {
       alert('Por favor, complete todos los campos.');
     }
-  };
+  }
+  
 
   return (
   <div className="container">
@@ -44,21 +51,27 @@ export function Register() {
             <i class='bx bxl-facebook bx-md'></i>
           </div>
           <p>Correo para registrarte</p>
-          <form className="form">
+          <form className="form" onSubmit={handleSubmit}>
             <label>
               <box-icon name='user' ></box-icon>
-              <input type="text" placeholder="Nombre Completo" />
+              <input type="text" placeholder="Nombre Completo" value={user}
+              onInput={(e) => setUser(e.target.value)}/>
             </label>
             <label>
-              <box-icon name='envelope' ></box-icon>
-              <input type="email" placeholder="Correo Electronico" />
+              <box-icon name='lock-alt' ></box-icon>
+              <input type="password" placeholder="Contraseña" value={password}
+              onInput={(e) => setPassword(e.target.value)}/>
               </label>
               <label>
                 <box-icon name='lock-alt' ></box-icon>
-                <input type="password" placeholder="Contraseña" />
+                <input type="password" placeholder="Contraseña de confirmacion" value={confirmPassword}
+              onInput={(e) => setConfirmPassword(e.target.value)}/>
               </label>
               <input type="submit" value="Registrar" />
           </form>
+          <Link to="/login" className="link-forgot">
+              tienes cuenta? Logueate
+           </Link>
         </div>
       </div>
       <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
