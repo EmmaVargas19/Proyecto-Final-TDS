@@ -4,8 +4,9 @@ import '../App.css'
 export const contextName = createContext()
 
 export function MyContext ({children}){
-const [user, setUser] = useState(null)
-
+const [user, setUser] = useState("")
+const [password, setPassword] = useState("")
+const [confirmPassword, setConfirmPassword] = useState('');
 function normal (){
     setUser("normal")
 }
@@ -24,6 +25,11 @@ function ejem (){
 return (
     <contextName.Provider value={{
         user,
+        setUser,
+        password,
+        setPassword,
+        confirmPassword,
+        setConfirmPassword,
         ejem,
         normal,
         toastifye,

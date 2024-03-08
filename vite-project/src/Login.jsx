@@ -1,24 +1,22 @@
-import {useState} from 'react';
+import { useContext } from 'react';
+import { contextName } from './context/MyContext.jsx';
 import './Login.css';
+import { Link } from 'react-router-dom';
 
 export function Login() {
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const handleSubmit = (event) => {
+const {user,setUser,password,setPassword} = useContext(contextName)
+  
+const handleSubmit = (event) => {
 
     event.preventDefault();
-
-    if (username === 'admin' && password === 'password') {
-
+    if (user === 'admin' && password === 'password') {
       alert('Inicio de sesión exitoso');
-
     } else {
-
       alert('Nombre de usuario o contraseña incorrectos');
-
     }
   };
+
 
   return (
 
@@ -29,36 +27,36 @@ export function Login() {
         </div>
           <form onSubmit={handleSubmit}>
             <p className="card-title">Iniciar Sesion</p>
-            {/* <label htmlFor="username">Correo</label> */}
+            <label htmlFor="user">Usuario</label>
             <input
               className="input-field"
-              type="email"
-              id="username"
-              placeholder="Correo Electronico"
-              value={username}
-              onChange={(event) => setUsername(event.target.value)}/>
+              type="text"
+              id="user"
+              placeholder="Usuario"
+              value={user}
+              onInput={(e) => setUser(e.target.value)}/>
             <br />
-            {/* <label htmlFor="password">Contraseña</label> */}
+            <label htmlFor="password">Contraseña</label>
             <input
               className="input-field"
               type="password"
               id="password"
               placeholder="Contraseña"
               value={password}
-              onChange={(event) => setPassword(event.target.value)}/>
+              onChange={(e) => setPassword(e.target.value)}/>
             <br />
-            <button type="submit" className="button-field">
+            <button className="button-field">
               Iniciar
             </button>
           </form>
           <div className="links-container">
-            <a href="#" className="link-forgot">
+{/*             <a href="#" className="link-forgot">
             ¿Has olvidado tu contraseña?
-            </a>
+            </a> */}
             <span> | </span>
-            <a href="./Register" className="link-register">
-            ¿No tienes una cuenta? Crear
-            </a>
+            <Link to="/register" className="link-forgot">
+              No tienes cuenta? Registrate
+            </Link>
           </div>
       </div> 
     </div>
