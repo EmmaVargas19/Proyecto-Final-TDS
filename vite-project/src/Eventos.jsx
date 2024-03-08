@@ -17,7 +17,7 @@ const events = [
     , 
     {name: "Evento 5", date: "2021-10-14", description: "Este es el evento 5", img: "src/assets/img5.jpeg", id: 5}]
 
-const {user, normal, toastifye} = useContext(contextName)
+const {user, logged, toastifye, localStorageGetEdit} = useContext(contextName)
 
 const mapeo = events.map((obj) => (
     <div key={obj.id} className="evento">
@@ -25,7 +25,9 @@ const mapeo = events.map((obj) => (
         <h3>{obj.name}</h3>
         <p>{obj.date}</p>
         <p>{obj.description}</p>
-        <button onClick={()=> user ? normal : toastifye("No puedes inscribirte si no estas registrado")}>Inscribirse</button>
+        <button onClick={()=> {
+            logged ?  localStorageGetEdit(obj):
+            toastifye("No puedes inscribirte si no estas registrado")}}>Inscribirse</button>
     </div>
 ))
 
@@ -39,7 +41,7 @@ const mapeo = events.map((obj) => (
     </div>
     <h2>Eventos donde estoy alistado</h2>
     <div>
-        {user ? <p>Evento 1</p> : <NoEventos/>}
+        {user && logged ? <p>Evento 1</p> : <NoEventos/>}
     </div>
     <ToastContainer />
     </>
