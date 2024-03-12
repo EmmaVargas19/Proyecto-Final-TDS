@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import { useContext } from "react";
-import { contextName } from "./context/myContext";
+import { contextName } from "./context/MyContext.jsx";
 import './App.css'
 
 

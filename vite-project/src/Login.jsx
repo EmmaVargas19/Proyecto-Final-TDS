@@ -1,8 +1,10 @@
 import { useContext } from 'react';
-import { contextName } from './context/myContext';
+import { contextName } from './context/MyContext.jsx';
 import { useNavigate } from 'react-router-dom';
 
 import './Login.css';
+import 'boxicons';
+import './Register.jsx';
 import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -24,41 +26,40 @@ const handleSubmit = (e) => {
 
   return (
 
-    <div className="login-container">
-      <div className="card-container">
-        <div className="logo-container">
-          <img src="https://www.gob.mx/cms/uploads/article/main_image/108950/imagenes_750x392-05.jpg" width="300" alt="Logo" className="logo" />
-        </div>
-          <form onSubmit={handleSubmit}>
-            <p className="card-title">Iniciar Sesion</p>
-            <label htmlFor="user">Usuario</label>
-            <input
-              className="input-field"
-              type="text"
-              id="user"
-              placeholder="Usuario"
-              value={user}
-              onInput={(e) => setUser(e.target.value)}/>
-            <br />
-            <label htmlFor="password">Contraseña</label>
-            <input
-              className="input-field"
-              type="password"
-              id="password"
-              placeholder="Contraseña"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}/>
-            <br />
-            <button className="button-field">
-              Iniciar
-            </button>
-          </form>
-          <div className="links-container">
-            <Link to="/register" className="link-forgot">
-              No tienes cuenta? Registrate
-            </Link>
+    <div className="container">
+      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'></link>
+      <div className="container-form">
+        <div className="information">
+          <div className="info-childs">
+            <h2>Bienvenido</h2>
+            <p>Si aun no tienes cuenta registrate aqui</p>
+            <input type="button" value="Registrarse" id="sing-up"/>
           </div>
-      </div> 
+      </div>
+      <div className="form-information">
+          <div className="form-information-childs">
+            <h2>Iniciar Sesión</h2>
+            <div className="icons">
+              <i class='bx bxl-google bx-md'></i>
+              <i class='bx bxl-github bx-md' ></i>
+              <i class='bx bxl-facebook bx-md'></i>
+            </div>
+            <p>O inicia sesión con tu cuenta</p>
+            <form className="form">
+              <label>
+                <box-icon name='envelope' ></box-icon>
+                <input type="email" placeholder="Correo Electronico" />
+                </label>
+                <label>
+                  <box-icon name='lock-alt' ></box-icon>
+                  <input type="password" placeholder="Contraseña" />
+                </label>
+                <input type="submit" value="Iniciar Sesión" />
+            </form>
+          </div>
+        </div>
+        <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+      </div>
       <ToastContainer />
     </div>
   );
