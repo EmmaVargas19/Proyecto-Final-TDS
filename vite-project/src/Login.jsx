@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import { contextName } from './context/MyContext.jsx';
 import { useNavigate } from 'react-router-dom';
-
 import './Login.css';
 import 'boxicons';
 import './Register.jsx';
@@ -33,26 +32,28 @@ const handleSubmit = (e) => {
           <div className="info-childs">
             <h2>Bienvenido</h2>
             <p>Si aun no tienes cuenta registrate aqui</p>
+            <Link to="/register">
             <input type="button" value="Registrarse" id="sing-up"/>
+            </Link>
           </div>
       </div>
       <div className="form-information">
           <div className="form-information-childs">
             <h2>Iniciar Sesión</h2>
             <div className="icons">
-              <i class='bx bxl-google bx-md'></i>
-              <i class='bx bxl-github bx-md' ></i>
-              <i class='bx bxl-facebook bx-md'></i>
+              <i className='bx bxl-google bx-md'></i>
+              <i className='bx bxl-github bx-md' ></i>
+              <i className='bx bxl-facebook bx-md'></i>
             </div>
             <p>O inicia sesión con tu cuenta</p>
-            <form className="form">
+            <form className="form" onSubmit={handleSubmit}>
               <label>
-                <box-icon name='envelope' ></box-icon>
-                <input type="email" placeholder="Correo Electronico" />
+                <box-icon name='user' ></box-icon>
+                <input type="text" placeholder="Usuario" value={user} onInput={(e) => setUser(e.target.value)}/>
                 </label>
                 <label>
                   <box-icon name='lock-alt' ></box-icon>
-                  <input type="password" placeholder="Contraseña" />
+                  <input type="password" placeholder="Contraseña" value={password} onInput={(e) => setPassword(e.target.value)}/>
                 </label>
                 <input type="submit" value="Iniciar Sesión" />
             </form>

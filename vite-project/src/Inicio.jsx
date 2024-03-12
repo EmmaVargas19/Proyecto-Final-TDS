@@ -8,7 +8,31 @@ import './App.css'
 
 export function Inicio() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const {user, password, logged, toastifys, showedToast, setShowedToast} = useContext(contextName)
+  const {user, password, logged, toastifys, showedToast, setShowedToast, localStorageGet} = useContext(contextName)
+  function calculateLocalStorageSize() {
+    let totalSize = 0;
+    // Iterar sobre cada clave en localStorage
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+
+        // Calcular el tamaño aproximado de la clave y el valor
+        const itemSize = (key.length + value.length) * 2; // Consideramos que cada carácter ocupa 2 bytes
+
+        // Sumar al tamaño total
+        totalSize += itemSize;
+    }
+
+    // Devolver el tamaño total en bytes
+    return totalSize;
+}
+/* localStorage.clear() */
+// Llamamos a la función para obtener el tamaño aproximado de localStorage
+const localStorageSize = calculateLocalStorageSize();
+
+// Convertimos el tamaño a kilobytes (KB) para mayor legibilidad
+const localStorageSizeKB = localStorageSize / 1024;
+console.log("Tamaño aproximado de localStorage:", localStorageSizeKB.toFixed(2), "KB");
   const images = [
     {img: "src/assets/img1.jpeg", message: "Transformando dispositivos olvidados en oportunidades renovadas.", id: 1},
     {img: "src/assets/img2.jpeg", message: "Unidos por un futuro más sostenible y tecnológicamente inclusivo." , id: 2},
@@ -38,6 +62,9 @@ const goToNextSlide = () => {
       setCurrentIndex(prevIndex => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
     };
 
+
+const ejem = localStorageGet()
+console.log(ejem)
   return (
     <>
     <div className='carousel'>

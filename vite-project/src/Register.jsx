@@ -39,16 +39,18 @@ const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword
         <div className="info-childs">
           <h2>Bienvenido</h2>
           <p>Para unirse a nuestra comunidad, inicie sesión con sus datos</p>
+          <Link to="/login">
           <input type="button" value="Inicio Sesión" id="sing-in"/>
+          </Link>
         </div>
      </div>
     <div className="form-information">
         <div className="form-information-childs">
           <h2>Crear Una Cuenta</h2>
           <div className="icons">
-            <i class='bx bxl-google bx-md'></i>
-            <i class='bx bxl-github bx-md' ></i>
-            <i class='bx bxl-facebook bx-md'></i>
+            <i className='bx bxl-google bx-md'></i>
+            <i className='bx bxl-github bx-md' ></i>
+            <i className='bx bxl-facebook bx-md'></i>
           </div>
           <p>Correo para registrarte</p>
           <form className="form" onSubmit={handleSubmit}>
@@ -69,13 +71,11 @@ const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword
               </label>
               <input type="submit" value="Registrar" />
           </form>
-          <Link to="/login" className="link-forgot">
-              tienes cuenta? Logueate
-           </Link>
         </div>
       </div>
       <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     </div>
+    <ToastContainer />
   </div>  
   );
 }

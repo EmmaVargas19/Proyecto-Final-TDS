@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import { toast } from 'react-toastify';
 import '../App.css'
+
 export const contextName = createContext()
 
 export function MyContext ({children}){
@@ -16,7 +17,7 @@ function normal (){
 }
 
 function localStorageSave (){
-    localStorage.setItem(`${user}`, JSON.stringify({password: password}));
+    localStorage.setItem(`${user}`, JSON.stringify({password: password, inscrito: []}));
 }
 
 function localStorageGet (){
@@ -24,12 +25,10 @@ function localStorageGet (){
     return data
 }
 
-function localStorageGetEdit (value){
+function localStorageGetEdit (obj){
     const data = localStorage.getItem(`${user}`)
     const dataParsed = JSON.parse(data)
-    dataParsed.inscrito = [value]
-/*     dataParsed.inscrito = []
-    dataParsed.inscrito.push(value) */
+    dataParsed.inscrito = [...dataParsed.inscrito, obj]
     localStorage.setItem(`${user}`, JSON.stringify(dataParsed))
 }
 

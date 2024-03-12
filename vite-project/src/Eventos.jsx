@@ -1,6 +1,6 @@
 import { ToastContainer } from 'react-toastify';
 import { useContext } from "react";
-import { contextName } from "./context/MyContext.jsx";
+import { contextName } from "./context/myContext.jsx";
 import { NoEventos } from "./NoEventos";
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css'
@@ -17,7 +17,7 @@ const events = [
     , 
     {name: "Evento 5", date: "2021-10-14", description: "Este es el evento 5", img: "src/assets/img5.jpeg", id: 5}]
 
-const {user, logged, toastifye, localStorageGetEdit} = useContext(contextName)
+const {user, logged, toastifye, localStorageGet ,localStorageGetEdit} = useContext(contextName)
 
 const mapeo = events.map((obj) => (
     <div key={obj.id} className="evento">
@@ -32,7 +32,17 @@ const mapeo = events.map((obj) => (
 ))
 
 
+const ejemejem = localStorageGet()
+const value = JSON.parse(ejemejem)
 
+const mapeop = value && value.inscrito.map((obj) => (
+    <div key={obj.id} className="evento">
+        <img src={obj.img} alt={`Evento ${obj.id}`} title={`Imagen del evento ${obj.name}`} />
+        <h3>{obj.name}</h3>
+        <p>{obj.date}</p>
+        <p>{obj.description}</p>
+    </div>
+))
   return (
     <>
     <h2>Eventos Activos</h2>
@@ -40,8 +50,8 @@ const mapeo = events.map((obj) => (
         {mapeo}
     </div>
     <h2>Eventos donde estoy alistado</h2>
-    <div>
-        {user && logged ? <p>Evento 1</p> : <NoEventos/>}
+    <div className='gridejem'>
+        {user && logged ? mapeop : <NoEventos/>}
     </div>
     <ToastContainer />
     </>
