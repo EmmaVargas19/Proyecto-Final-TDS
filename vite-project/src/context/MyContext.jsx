@@ -26,9 +26,16 @@ function localStorageGet (){
 }
 
 function localStorageGetEdit (obj){
-    const data = localStorage.getItem(`${user}`)
+    const data = localStorageGet()
     const dataParsed = JSON.parse(data)
     dataParsed.inscrito = [...dataParsed.inscrito, obj]
+    localStorage.setItem(`${user}`, JSON.stringify(dataParsed))
+}
+
+function localStorageGetBorrar(obj) {
+    const data = localStorageGet()
+    const dataParsed = JSON.parse(data)
+    dataParsed.inscrito = obj
     localStorage.setItem(`${user}`, JSON.stringify(dataParsed))
 }
 
@@ -60,6 +67,7 @@ return (
         localStorageSave,
         localStorageGet,
         localStorageGetEdit,
+        localStorageGetBorrar,
         localStorageDelete,
         showedToast,
         setShowedToast,

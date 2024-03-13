@@ -1,7 +1,7 @@
 import {useEffect, useState, useContext} from 'react'
 import { motion } from 'framer-motion';
 import { SobreNosotros } from './SobreNosotros';
-import { contextName } from './context/MyContext.jsx';
+import { contextName } from './context/myContext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css'
