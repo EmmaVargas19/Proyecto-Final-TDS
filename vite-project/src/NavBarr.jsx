@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import { useContext } from "react";
-import { contextName } from "./context/MyContext.jsx";
+import { contextName } from "./context/myContext";
 import './App.css'
 
 
@@ -19,6 +19,7 @@ export function NavBarr() {
     <li><Link to={'/register'}>Registrarse</Link></li>
     <li><Link to={'/login'}>Iniciar sesión</Link></li>
     {user && logged ? <li><button onClick={()=>{setLogged(false); setUser(""); setPassword(""); setShowedToast(false)}}>Cerrar sesión</button></li> : null}
+    {user && logged ? <li><Link to={'/perfil'}>Mi Perfil</Link></li> : null}
     </div>
     </ul>
     </div>

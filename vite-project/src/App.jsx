@@ -3,6 +3,7 @@ import {NavBarr} from './NavBarr'
 import { Eventos } from "./Eventos";
 import {Register} from './Register'
 import {Login} from './Login'
+import {Perfil} from './Perfil'
 import './App.css'
 import { Inicio } from "./Inicio";
 
@@ -15,6 +16,8 @@ function App() {
           <Route path="/eventos" element={<Eventos/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
+          <Route path="/perfil" element={<Perfil/>}/>
+          <Route path="*" element={<h1>404</h1>}/>
         </Route>
       </Routes>
     </div>
