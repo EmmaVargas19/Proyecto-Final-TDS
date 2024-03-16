@@ -8,6 +8,7 @@ export function MyContext ({children}){
 const [user, setUser] = useState("")
 const [password, setPassword] = useState("")
 const [confirmPassword, setConfirmPassword] = useState("");
+const [newPassword, setNewPassword] = useState("")
 const [logged, setLogged] = useState(false)
 const [showedToast, setShowedToast] = useState(false);
 
@@ -22,21 +23,26 @@ function localStorageSave (){
 
 function localStorageGet (){
     const data = localStorage.getItem(`${user}`)
-    return data
+    const dataParsed = JSON.parse(data)
+    return dataParsed
 }
 
 function localStorageGetEdit (obj){
     const data = localStorageGet()
-    const dataParsed = JSON.parse(data)
-    dataParsed.inscrito = [...dataParsed.inscrito, obj]
-    localStorage.setItem(`${user}`, JSON.stringify(dataParsed))
+    data.inscrito = [...data.inscrito, obj]
+    localStorage.setItem(`${user}`, JSON.stringify(data))
+}
+
+function localStorageSavePassword (){
+    const data = localStorageGet()
+    data.password = newPassword
+    localStorage.setItem(`${user}`, JSON.stringify(data))
 }
 
 function localStorageGetBorrar(obj) {
     const data = localStorageGet()
-    const dataParsed = JSON.parse(data)
-    dataParsed.inscrito = obj
-    localStorage.setItem(`${user}`, JSON.stringify(dataParsed))
+    data.inscrito = obj
+    localStorage.setItem(`${user}`, JSON.stringify(data))
 }
 
 function localStorageDelete (){
@@ -62,11 +68,13 @@ return (
         setPassword,
         confirmPassword,
         setConfirmPassword,
+        setNewPassword,
         logged,
         setLogged,
         localStorageSave,
         localStorageGet,
         localStorageGetEdit,
+        localStorageSavePassword,
         localStorageGetBorrar,
         localStorageDelete,
         showedToast,

@@ -15,7 +15,7 @@ const navigate = useNavigate();
 
 const handleSubmit = (e) => {
     e.preventDefault();
-    if (localStorageGet() && JSON.parse(localStorageGet()).password === password) {
+    if (localStorageGet() && localStorageGet().password === password) {
       setLogged(true);
       navigate('/');
     } else {
