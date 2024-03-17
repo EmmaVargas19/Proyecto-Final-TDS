@@ -11,6 +11,13 @@ const [confirmPassword, setConfirmPassword] = useState("");
 const [newPassword, setNewPassword] = useState("")
 const [logged, setLogged] = useState(false)
 const [showedToast, setShowedToast] = useState(false);
+const [nombre, setNombre] = useState('');
+const [nombreNegocio, setNombreNegocio] = useState('');
+const [direccion, setDireccion] = useState('');
+const [modelo, setModelo] = useState('');
+const [selectedValue, setSelectedValue] = useState('');
+const [isChecked, setIsChecked] = useState(false);
+
 
 function normal (){
     setLogged(true)
@@ -18,7 +25,7 @@ function normal (){
 }
 
 function localStorageSave (){
-    localStorage.setItem(`${user}`, JSON.stringify({password: password, inscrito: []}));
+    localStorage.setItem(`${user}`, JSON.stringify({nombre: nombre, password: password, inscrito: [], donados: []}));
 }
 
 function localStorageGet (){
@@ -36,6 +43,12 @@ function localStorageGetEdit (obj){
 function localStorageSavePassword (){
     const data = localStorageGet()
     data.password = newPassword
+    localStorage.setItem(`${user}`, JSON.stringify(data))
+}
+
+function localStorageDonar(obj){
+    const data = localStorageGet()
+    data.donados = [...data.donados, obj]
     localStorage.setItem(`${user}`, JSON.stringify(data))
 }
 
@@ -75,6 +88,7 @@ return (
         localStorageGet,
         localStorageGetEdit,
         localStorageSavePassword,
+        localStorageDonar,
         localStorageGetBorrar,
         localStorageDelete,
         showedToast,
@@ -82,7 +96,13 @@ return (
         ejem,
         normal,
         toastifye,
-        toastifys
+        toastifys,
+        nombre, setNombre,
+        nombreNegocio, setNombreNegocio,
+        direccion, setDireccion,
+        modelo, setModelo,
+        selectedValue, setSelectedValue,
+        isChecked, setIsChecked
     }}>
         {children}
     </contextName.Provider>

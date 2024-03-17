@@ -5,7 +5,7 @@ import './App.css'
 
 
 export function NavBarr() {
-  const {setUser, setPassword, logged, setLogged, setShowedToast} = useContext(contextName)
+  const {setUser, setPassword, logged, setLogged, setShowedToast, setNombre} = useContext(contextName)
   return (
     <>
     <div className="navbar">
@@ -14,11 +14,12 @@ export function NavBarr() {
     <img src="src/assets/WhatsApp Image 2024-02-29 at 2.26.29 PM.jpeg" alt="" />
     <li><Link to={'/'}>Inicio</Link></li>
     <li><Link to={'/eventos'}>Eventos</Link></li>
+    {logged ? <li><Link to={'/donar'}>Donar</Link></li> : null}
     </div>
     <div className="hijo">
     {logged ? null : <li><Link to={'/register'}>Registrarse</Link></li>}
     {logged ? null : <li><Link to={'/login'}>Iniciar sesión</Link></li>}
-    {logged ? <li><button onClick={()=>{setLogged(false); setUser(""); setPassword(""); setShowedToast(false)}}>Cerrar sesión</button></li> : null}
+    {logged ? <li><button onClick={()=>{setLogged(false); setUser(""); setPassword(""); setShowedToast(false); setNombre("")}}>Cerrar sesión</button></li> : null}
     {logged ? <li><Link to={'/perfil'}>Mi Perfil</Link></li> : null}
     </div>
     </ul>

@@ -9,7 +9,7 @@ import './Login.jsx';
 
 export function Register() {
 
-const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword, localStorageSave, localStorageGet, toastifye, toastifys} = useContext(contextName);
+const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword, localStorageSave, localStorageGet, toastifye, toastifys, nombre, setNombre} = useContext(contextName);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,6 +20,7 @@ const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword
       localStorageSave();
       setUser("");
       setPassword("");
+      setConfirmPassword("");
       toastifys('Cuenta creada exitosamente');
     } else if (user === ""){
       toastifye('Por favor, llena el campo de usuario')
@@ -31,7 +32,7 @@ const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword
       alert('Por favor, complete todos los campos.');
     }
   }
-  
+
 
   return (
   <div className="container">
@@ -58,7 +59,11 @@ const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword
           <form className="form" onSubmit={handleSubmit}>
             <label>
               <box-icon name='user' ></box-icon>
-              <input type="text" placeholder="Nombre Completo" value={user}
+              <input type="text" placeholder="Nombre" onInput={(e)=> setNombre(e.target.value)} value={nombre}/>
+            </label>
+            <label>
+              <box-icon name='user' ></box-icon>
+              <input type="text" placeholder="UserName" value={user}
               onInput={(e) => setUser(e.target.value)}/>
             </label>
             <label>

@@ -5,13 +5,11 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export function Perfil() {
-    const { user, setUser, password,setPassword, confirmPassword, setConfirmPassword, setNewPassword,setLogged, localStorageDelete, localStorageGet,localStorageSavePassword ,toastifye, toastifys } = useContext(contextName);
+    const { user, password,setPassword, confirmPassword, setConfirmPassword, setNewPassword,setLogged, localStorageDelete, localStorageGet,localStorageSavePassword ,toastifye, toastifys } = useContext(contextName);
     const navigate = useNavigate(); // Utiliza useNavigate para obtener el objeto de navegación
 
     const handleDeleteProfile = () => {
         localStorageDelete();
-        setUser("");
-        setPassword("");
         setLogged(false);
         // Navega a la página de inicio
         navigate("/");
@@ -45,6 +43,20 @@ export function Perfil() {
             <br />
             <button onClick={cambiarPass}>Guardar</button>
             <button onClick={handleDeleteProfile}>Borrar perfil</button>
+            <h2>Dispositivos donados</h2>
+            <div className='gridejem'>
+                {localStorageGet().donados.map((e) => {
+                    return (
+                        <div key={e.id} className='card'>
+                            <p>Nombre: {e.nombre}</p>
+                            <p>Nombre del negocio: {e.negocio}</p>
+                            <p>Direccion del negocio: {e.direccion}</p>
+                            <p>Dispositivo: {e.dispositivo}</p>
+                            <p>Modelo: {e.modelo}</p>
+                        </div>
+                    )
+                })}
+            </div>
         <ToastContainer />
         </div>
     );

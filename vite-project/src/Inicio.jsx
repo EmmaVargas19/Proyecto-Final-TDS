@@ -8,7 +8,7 @@ import './App.css'
 
 export function Inicio() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const {user, password, logged, toastifys, showedToast, setShowedToast, localStorageGet} = useContext(contextName)
+  const {user, password, logged, toastifys, showedToast, setShowedToast, localStorageGet, nombre} = useContext(contextName)
   function calculateLocalStorageSize() {
     let totalSize = 0;
     // Iterar sobre cada clave en localStorage
@@ -53,7 +53,7 @@ useEffect(()=>{
   }
 },[user, logged, toastifys])
 
-console.log(logged, user, password)
+console.log(nombre, logged, user, password)
 const goToNextSlide = () => {
       setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
     };

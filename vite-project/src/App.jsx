@@ -4,6 +4,7 @@ import { Eventos } from "./Eventos";
 import {Register} from './Register'
 import {Login} from './Login'
 import {Perfil} from './Perfil'
+import { Donar } from "./Donar";
 import './App.css'
 import { Inicio } from "./Inicio";
 
@@ -15,6 +16,7 @@ function App() {
           <Route index element={<Inicio/>}/>
           <Route path="/eventos" element={<Eventos/>}/>
           <Route path="/register" element={<Register/>}/>
+          <Route path="/donar" element={<Donar/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/perfil" element={<Perfil/>}/>
           <Route path="*" element={<h1>404</h1>}/>
