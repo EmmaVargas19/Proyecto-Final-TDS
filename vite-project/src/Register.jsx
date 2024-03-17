@@ -41,7 +41,7 @@ const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword
       <div className="information">
         <div className="info-childs">
           <h2>Bienvenido</h2>
-          <p>Para unirse a nuestra comunidad, inicie sesión con sus datos</p>
+          <p>Para unirse a nuestra comunidad, inicie sesión</p>
           <Link to="/login">
           <input type="button" value="Iniciar Sesión" id="sing-in"/>
           </Link>
@@ -49,13 +49,12 @@ const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword
      </div>
     <div className="form-information">
         <div className="form-information-childs">
-          <h2>Crear Una Cuenta</h2>
+          <h2>Crear Cuenta</h2>
           <div className="icons">
             <i className='bx bxl-google bx-md'></i>
             <i className='bx bxl-github bx-md' ></i>
             <i className='bx bxl-facebook bx-md'></i>
           </div>
-          <p>Correo para registrarte</p>
           <form className="form" onSubmit={handleSubmit}>
             <label>
               <box-icon name='user' ></box-icon>
@@ -76,7 +75,7 @@ const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword
                 <input type="password" placeholder="Confirmar contraseña" value={confirmPassword}
               onInput={(e) => setConfirmPassword(e.target.value)}/>
               </label>
-              <input type="submit" value="Registrar" />
+              <input type="submit" value="Registrarse" />
           </form>
         </div>
       </div>
