@@ -5,7 +5,7 @@ import './App.css'
 
 
 export function NavBarr() {
-  const {user, setUser, setPassword, logged, setLogged, setShowedToast} = useContext(contextName)
+  const {setUser, setPassword, logged, setLogged, setShowedToast} = useContext(contextName)
   return (
     <>
     <div className="navbar">
@@ -16,10 +16,10 @@ export function NavBarr() {
     <li><Link to={'/eventos'}>Eventos</Link></li>
     </div>
     <div className="hijo">
-    <li><Link to={'/register'}>Registrarse</Link></li>
-    <li><Link to={'/login'}>Iniciar sesión</Link></li>
-    {user && logged ? <li><button onClick={()=>{setLogged(false); setUser(""); setPassword(""); setShowedToast(false)}}>Cerrar sesión</button></li> : null}
-    {user && logged ? <li><Link to={'/perfil'}>Mi Perfil</Link></li> : null}
+    {logged ? null : <li><Link to={'/register'}>Registrarse</Link></li>}
+    {logged ? null : <li><Link to={'/login'}>Iniciar sesión</Link></li>}
+    {logged ? <li><button onClick={()=>{setLogged(false); setUser(""); setPassword(""); setShowedToast(false)}}>Cerrar sesión</button></li> : null}
+    {logged ? <li><Link to={'/perfil'}>Mi Perfil</Link></li> : null}
     </div>
     </ul>
     </div>

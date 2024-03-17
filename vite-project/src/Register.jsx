@@ -18,6 +18,8 @@ const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword
       toastifye('El usuario ya existe, por favor elige otro nombre de usuario');
     } else if (user && password && password === confirmPassword) {
       localStorageSave();
+      setUser("");
+      setPassword("");
       toastifys('Cuenta creada exitosamente');
     } else if (user === ""){
       toastifye('Por favor, llena el campo de usuario')
