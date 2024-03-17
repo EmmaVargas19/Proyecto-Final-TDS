@@ -40,7 +40,7 @@ const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword
           <h2>Bienvenido</h2>
           <p>Para unirse a nuestra comunidad, inicie sesión con sus datos</p>
           <Link to="/login">
-          <input type="button" value="Inicio Sesión" id="sing-in"/>
+          <input type="button" value="Iniciar Sesión" id="sing-in"/>
           </Link>
         </div>
      </div>
@@ -66,7 +66,7 @@ const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword
               </label>
               <label>
                 <box-icon name='lock-alt' ></box-icon>
-                <input type="password" placeholder="Contraseña de confirmacion" value={confirmPassword}
+                <input type="password" placeholder="Confirmar contraseña" value={confirmPassword}
               onInput={(e) => setConfirmPassword(e.target.value)}/>
               </label>
               <input type="submit" value="Registrar" />
