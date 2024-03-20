@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { contextName } from "./context/myContext"
+import { contextName } from "./context/MyContext.jsx"
 
 export function Donar() {
 const {nombreNegocio, setNombreNegocio, direccion, setDireccion, modelo, setModelo, selectedValue, setSelectedValue, isChecked, setIsChecked, localStorageDonar, nombre} = useContext(contextName);

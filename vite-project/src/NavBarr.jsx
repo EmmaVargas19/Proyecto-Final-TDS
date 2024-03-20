@@ -1,11 +1,12 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { contextName } from "./context/myContext";
+import { contextName } from './context/MyContext.jsx';
 import './App.css'
 
 
 export function NavBarr() {
   const {setUser, setPassword, logged, setLogged, setShowedToast, setNombre} = useContext(contextName)
+  const navigate = useNavigate();
   return (
     <>
     <div className="navbar">
@@ -19,7 +20,7 @@ export function NavBarr() {
     <div className="hijo">
     {logged ? null : <li><Link to={'/register'}>Registrarse</Link></li>}
     {logged ? null : <li><Link to={'/login'}>Iniciar sesión</Link></li>}
-    {logged ? <li><button onClick={()=>{setLogged(false); setUser(""); setPassword(""); setShowedToast(false); setNombre("")}}>Cerrar sesión</button></li> : null}
+    {logged ? <li><button onClick={()=>{setLogged(false); setUser(""); setPassword(""); setShowedToast(false); setNombre(""); navigate("/")}}>Cerrar sesión</button></li> : null}
     {logged ? <li><Link to={'/perfil'}>Mi Perfil</Link></li> : null}
     </div>
     </ul>

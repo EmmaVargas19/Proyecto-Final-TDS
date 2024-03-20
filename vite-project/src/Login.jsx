@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { contextName } from './context/myContext';
+import { contextName } from './context/MyContext.jsx';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import 'boxicons';

@@ -1,14 +1,14 @@
 import {useEffect, useState, useContext} from 'react'
 import { motion } from 'framer-motion';
 import { SobreNosotros } from './SobreNosotros';
-import { contextName } from './context/myContext';
+import { contextName } from './context/MyContext.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css'
 
 export function Inicio() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const {user, password, logged, toastifys, showedToast, setShowedToast, localStorageGet, nombre} = useContext(contextName)
+  const {user, password, logged, toastifys, showedToast, setShowedToast, localStorageGet, nombre, foto} = useContext(contextName)
   function calculateLocalStorageSize() {
     let totalSize = 0;
     // Iterar sobre cada clave en localStorage

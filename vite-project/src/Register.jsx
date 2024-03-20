@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { contextName } from './context/myContext';
+import { contextName } from './context/MyContext.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Register.css';
@@ -21,6 +21,7 @@ const {user, setUser, password, setPassword, confirmPassword, setConfirmPassword
       setUser("");
       setPassword("");
       setConfirmPassword("");
+      setNombre("");
       toastifys('Cuenta creada exitosamente');
     } else if (user === ""){
       toastifye('Por favor, llena el campo de usuario')

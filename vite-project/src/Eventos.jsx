@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { contextName } from "./context/myContext.jsx";
+import { contextName } from './context/MyContext.jsx';
 import { NoEventos } from "./NoEventos";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
