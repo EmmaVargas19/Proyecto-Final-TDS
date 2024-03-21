@@ -13,7 +13,7 @@ export function NavBarr() {
     <div className="navbar">
     <ul>
     <div className="hijo">
-    <img src="src/assets/WhatsApp Image 2024-02-29 at 2.26.29 PM.jpeg" alt="" />
+    <img src="src/img/logo.png" alt="" />
     <li><Link to={'/'}>Inicio</Link></li>
     <li><Link to={'/eventos'}>Eventos</Link></li>
     </div>
@@ -40,11 +40,7 @@ export function NavBarr() {
           <br />
           <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Mision</b></p></a>
           <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Vision </b></p></a>
-          <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Sostenibilidad </b></p></a>
-          <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Responsabilidad </b> </p></a>
-          <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Colaboración </b> </p></a>
-          <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Innovación</b> </p></a>
-          <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Transparencia </b></p></a>
+          <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Valores </b></p></a>
         </div>
         <div className="box">
           <h2>Servicios</h2>
