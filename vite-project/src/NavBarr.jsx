@@ -1,7 +1,8 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { contextName } from './context/MyContext.jsx';
-import './App.css'
+import { contextName } from "./context/MyContext.jsx";
+import './App.css';
+import 'boxicons';
 
 
 export function NavBarr() {
@@ -9,6 +10,7 @@ export function NavBarr() {
   const navigate = useNavigate();
   return (
     <>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'></link>
     <div className="navbar">
     <ul>
     <div className="hijo">
@@ -27,8 +29,51 @@ export function NavBarr() {
     </div>
     <Outlet/>
     <footer className="footerContainer">
-      <p>Copyright © RenovaTech 2023-2024</p>
+      <div className="grupo-1">
+        <div className="box">
+          <figure>
+            <a href="#">
+            <img src="src/img/logo.png" alt="" />
+            </a>
+          </figure>
+        </div>
+        <div className="box">
+          <h2>Sobre Nosotros</h2>
+          <hr />
+          <br />
+          <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Mision</b></p></a>
+          <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Vision </b></p></a>
+          <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Sostenibilidad </b></p></a>
+          <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Responsabilidad </b> </p></a>
+          <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Colaboración </b> </p></a>
+          <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Innovación</b> </p></a>
+          <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Transparencia </b></p></a>
+        </div>
+        <div className="box">
+          <h2>Servicios</h2>
+          <hr />
+          <br />
+            <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Eventos</b></p></a>
+            <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Donaciones</b></p></a>
+        </div>
+        <div className="box">
+          <h2>Siguenos</h2>
+          <hr />
+          <br />
+          <div className="red-social">
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-instagram' ></i></a>
+            <a href="#"><i class='bx bxl-github' ></i></a>
+            <a href="#"><i class='bx bxl-youtube' ></i></a>
+          </div>
+        </div>
+
+      </div>
+      <div className="grupo-2">
+        <small>Copyright © RenovaTech 2023-2024. Todos Los Derechos Reservados</small>
+      </div>
     </footer>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     </>
   )
 }
