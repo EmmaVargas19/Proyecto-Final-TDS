@@ -41,30 +41,30 @@ export function NavBarr() {
           <h2>Sobre Nosotros</h2>
           <hr />
           <br />
-          <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Mision</b></p></a>
-          <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Vision </b></p></a>
-          <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Sostenibilidad </b></p></a>
-          <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Responsabilidad </b> </p></a>
-          <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Colaboración </b> </p></a>
-          <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Innovación</b> </p></a>
-          <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Transparencia </b></p></a>
+          <a href="#"><p><i className='bx bx-right-arrow-alt'></i> <b>Mision</b></p></a>
+          <a href="#"><p><i className='bx bx-right-arrow-alt'></i> <b>Vision </b></p></a>
+          <a href="#"><p><i className='bx bx-right-arrow-alt'></i> <b>Sostenibilidad </b></p></a>
+          <a href="#"><p><i className='bx bx-right-arrow-alt'></i> <b>Responsabilidad </b> </p></a>
+          <a href="#"><p><i className='bx bx-right-arrow-alt'></i> <b>Colaboración </b> </p></a>
+          <a href="#"><p><i className='bx bx-right-arrow-alt'></i> <b>Innovación</b> </p></a>
+          <a href="#"><p><i className='bx bx-right-arrow-alt'></i> <b>Transparencia </b></p></a>
         </div>
         <div className="box">
           <h2>Servicios</h2>
           <hr />
           <br />
-            <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Eventos</b></p></a>
-            <a href="#"><p><i class='bx bx-right-arrow-alt'></i> <b>Donaciones</b></p></a>
+            <a href="#"><p><i className='bx bx-right-arrow-alt'></i> <b>Eventos</b></p></a>
+            <a href="#"><p><i className='bx bx-right-arrow-alt'></i> <b>Donaciones</b></p></a>
         </div>
         <div className="box">
           <h2>Siguenos</h2>
           <hr />
           <br />
           <div className="red-social">
-            <a href="#"><i class='bx bxl-facebook'></i></a>
-            <a href="#"><i class='bx bxl-instagram' ></i></a>
-            <a href="#"><i class='bx bxl-github' ></i></a>
-            <a href="#"><i class='bx bxl-youtube' ></i></a>
+            <a href="#"><i className='bx bxl-facebook'></i></a>
+            <a href="#"><i className='bx bxl-instagram' ></i></a>
+            <a href="#"><i className='bx bxl-github' ></i></a>
+            <a href="#"><i className='bx bxl-youtube' ></i></a>
           </div>
         </div>
 
