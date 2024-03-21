@@ -12,6 +12,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  scroll-behavior: smooth;
+}
+
 a {
   color: white;
   text-decoration: none;

@@ -27,7 +27,12 @@ export function NavBarr() {
     </div>
     </ul>
     </div>
-    <Outlet/>
+    <main>
+      <Outlet/>
+    <main>
+      test
+    </main>
+    </main>
     <footer className="footerContainer">
       <div className="grupo-1">
         <div className="box">
@@ -41,19 +46,15 @@ export function NavBarr() {
           <h2>Sobre Nosotros</h2>
           <hr />
           <br />
-          <a href="#"><p><i className='bx bx-right-arrow-alt'></i> <b>Mision</b></p></a>
-          <a href="#"><p><i className='bx bx-right-arrow-alt'></i> <b>Vision </b></p></a>
-          <a href="#"><p><i className='bx bx-right-arrow-alt'></i> <b>Sostenibilidad </b></p></a>
-          <a href="#"><p><i className='bx bx-right-arrow-alt'></i> <b>Responsabilidad </b> </p></a>
-          <a href="#"><p><i className='bx bx-right-arrow-alt'></i> <b>Colaboración </b> </p></a>
-          <a href="#"><p><i className='bx bx-right-arrow-alt'></i> <b>Innovación</b> </p></a>
-          <a href="#"><p><i className='bx bx-right-arrow-alt'></i> <b>Transparencia </b></p></a>
+          <Link to="/#mision"><p><i className='bx bx-right-arrow-alt'></i> <b>Mision</b></p></Link>
+          <Link to="/#vision"><p><i className='bx bx-right-arrow-alt'></i> <b>Vision </b></p></Link>
+          <Link to="/#valores"><p><i className='bx bx-right-arrow-alt'></i> <b>Valores </b></p></Link>
         </div>
         <div className="box">
           <h2>Servicios</h2>
           <hr />
           <br />
-            <a href="#"><p><i className='bx bx-right-arrow-alt'></i> <b>Eventos</b></p></a>
+            <Link to="/eventos"><p><i className='bx bx-right-arrow-alt'></i> <b>Eventos</b></p></Link>
             <a href="#"><p><i className='bx bx-right-arrow-alt'></i> <b>Donaciones</b></p></a>
         </div>
         <div className="box">

@@ -8,11 +8,28 @@
   --colorNav: green;
 }
 
-.bodyContent {
+#root {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* ✔*/
   min-height: 100vh;
+
+  >main {
+    flex: 1;
+    /* aaaaah verdad que el root es 100vh y el flex toma todo el tama;o dispoible en main y por lo tanto como footer esta abajo siempre lo deja abajo ✔`, la para e ute, muchas gracias alpha*/
+  }
 }
+/* =se aplico, pero su padre el cual es main no es un flex
+osea mira el estilo del elemento que tengo seleccionado, viste los estilos en el dev tool? para que lo veas mas claro hagamos algo algo, ves el borde verdad?
+si le pongo el >, ahora solo lo tendra el main que es hijo directo de #root`, el mejor, bro, que significa flex1? xd, 
+flex: 1 es un shorcut para flex-grow creo que es, basicamente dice que tome el 100% del tamaño disponible, restandole lo de los otros elementos, mira el tamaño del header y el footer
+el ejemplo lo tenemos en la ui:  73.7 el header, 400.5 el footer, estos son los tamaños de los elementos que estan bajo el root
+entonces el unique que falta sera igual a la diferencia del height del padre menos la suma de los hijos, osea 100vh - 73.7 - 400.5
+
+etnonces serian 2000 - 73.7 - 400.5 = 1525.8, eso por que esta en flex colum, si fuera row en lugar de hacer la diferencia con el height lo haria con el width, basicamente flex1
+toma el espacio disponible 100 de width o height? si dependiendo de la direccion del flex, si es row toma el width, si es column toma el height, dejame ver que hiciste en el footer
+ no hice nada en el footer
+
+*/
 
 .navbar {
   font-weight: bold;
@@ -182,7 +199,9 @@
   color: white;
   background-color: var(--colorNav);
   
-  /* text-align: center; */
+  /* text-align: center; y entonces como el se queda abajo? xd
+    por que el mmain estacreciendo todo el tamaño del height disponible por ende lo esta empujando, el mejor, prueba quitandole el flex 1
+  */
 }
 
 .footerContainer .grupo-1 {
