@@ -33,7 +33,7 @@ export function Perfil() {
     return (
         <div>
             <p>Perfil</p>
-            <p>Foto de perfil: {localStorageGet().foto && <img src={foto} alt="Foto de perfil" width="800" height="300"/>}</p>
+            <p>Foto de perfil: {foto ? <img src={foto} alt="Foto de perfil" width="800" height="300"/> : <img src={localStorageGet().foto} alt="Foto de perfil" width="800" height="300"/>}</p>
             <input type="file" onChange={(event) => {
                 const archivo = event.target.files[0];
                 if (archivo) {
@@ -62,7 +62,7 @@ export function Perfil() {
                 {localStorageGet().donados.map((e) => {
                     return (
                         <div key={e.id} className='card'>
-                            {localStorageGet().foto && <img src={foto} alt="Foto de perfil" width="50" height="50" />}
+                            {foto ? <img src={foto} alt="Foto de perfil" width="50" height="50"/> : <img src={localStorageGet().foto} alt="Foto de perfil" width="50" height="50"/>}
                             <p>Nombre: {e.nombre}</p>
                             <p>Nombre del negocio: {e.negocio}</p>
                             <p>Direccion del negocio: {e.direccion}</p>
