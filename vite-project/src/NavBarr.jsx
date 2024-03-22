@@ -14,7 +14,7 @@ export function NavBarr() {
     <div className="navbar">
     <ul>
     <div className="hijo">
-    <img src="src/assets/WhatsApp Image 2024-02-29 at 2.26.29 PM.jpeg" alt="" />
+    <img src="src/img/logo.png" alt="" />
     <li><Link to={'/'}>Inicio</Link></li>
     <li><Link to={'/eventos'}>Eventos</Link></li>
     {logged ? <li><Link to={'/donar'}>Donar</Link></li> : null}
@@ -29,51 +29,50 @@ export function NavBarr() {
     </div>
     <main>
       <Outlet/>
-    <main>
+    {/* <main>
       test
-    </main>
+    </main> */}
     </main>
     <footer className="footerContainer">
-      <div className="grupo-1">
-        <div className="box">
-          <figure>
-            <a href="#">
+    <div className="grupo-1">
+      <div className="box">
+        <figure>
+          <a href="#">
             <img src="src/img/logo.png" alt="" />
-            </a>
-          </figure>
-        </div>
-        <div className="box">
-          <h2>Sobre Nosotros</h2>
-          <hr />
-          <br />
-          <Link to="/#mision"><p><i className='bx bx-right-arrow-alt'></i> <b>Mision</b></p></Link>
-          <Link to="/#vision"><p><i className='bx bx-right-arrow-alt'></i> <b>Vision </b></p></Link>
-          <Link to="/#valores"><p><i className='bx bx-right-arrow-alt'></i> <b>Valores </b></p></Link>
-        </div>
-        <div className="box">
-          <h2>Servicios</h2>
-          <hr />
-          <br />
-            <Link to="/eventos"><p><i className='bx bx-right-arrow-alt'></i> <b>Eventos</b></p></Link>
-            <a href="#"><p><i className='bx bx-right-arrow-alt'></i> <b>Donaciones</b></p></a>
-        </div>
-        <div className="box">
-          <h2>Siguenos</h2>
-          <hr />
-          <br />
-          <div className="red-social">
-            <a href="#"><i className='bx bxl-facebook'></i></a>
-            <a href="#"><i className='bx bxl-instagram' ></i></a>
-            <a href="#"><i className='bx bxl-github' ></i></a>
-            <a href="#"><i className='bx bxl-youtube' ></i></a>
-          </div>
-        </div>
-
+          </a>
+        </figure>
       </div>
-      <div className="grupo-2">
-        <small>Copyright © RenovaTech 2023-2024. Todos Los Derechos Reservados</small>
+      <div className="box">
+        <h2>Sobre Nosotros</h2>
+        <hr />
+        <br />
+        <Link to="/#mision"><p><i className='bx bx-right-arrow-alt'></i> <b>Mision</b></p></Link>
+        <Link to="/#vision"><p><i className='bx bx-right-arrow-alt'></i> <b>Vision </b></p></Link>
+        <Link to="/#valores"><p><i className='bx bx-right-arrow-alt'></i> <b>Valores </b></p></Link>
       </div>
-    </footer>
+      <div className="box">
+        <h2>Servicios</h2>
+        <hr />
+        <br />
+          <Link to="/eventos"><p><i className='bx bx-right-arrow-alt'></i> <b>Eventos</b></p></Link>
+          <a href="#"><p><i className='bx bx-right-arrow-alt'></i> <b>Donaciones</b></p></a>
+      </div>
+      <div className="box">
+        <h2>Siguenos</h2>
+        <hr />
+        <br />
+        <div className="red-social">
+          <a href="#"><i className='bx bxl-facebook'></i></a>
+          <a href="#"><i className='bx bxl-instagram' ></i></a>
+          <a href="#"><i className='bx bxl-github' ></i></a>
+          <a href="#"><i className='bx bxl-youtube' ></i></a>
+        </div>
+      </div>
+    </div>
+    <div className="grupo-2">
+      <small>Copyright © RenovaTech 2023-2024. Todos Los Derechos Reservados</small>
+    </div>
+  </footer>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     </>
   )
