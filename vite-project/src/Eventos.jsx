@@ -67,7 +67,7 @@ console.log(localStorageGet() + "soy local storage get")
                 {mapeo}
             </div>
             <h2>Eventos donde estoy inscrito</h2>
-            <div className='gridejem'>
+            <div className={user && logged && localStorageGet().inscrito.length !== 0 ? "gridejem" : "normal"}>
                 {user && logged && localStorageGet().inscrito.length !== 0 ? mapeoEventosInscritos : <NoEventos />}
             </div>
             <ToastContainer />

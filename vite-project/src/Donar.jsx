@@ -2,9 +2,11 @@ import { useContext } from "react"
 import { contextName } from "./context/MyContext.jsx"
 import './Donar.css';
 import 'boxicons';
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Donar() {
-const {nombreNegocio, setNombreNegocio, direccion, setDireccion, modelo, setModelo, selectedValue, setSelectedValue, isChecked, setIsChecked, localStorageDonar, nombre} = useContext(contextName);
+const {nombreNegocio, setNombreNegocio, direccion, setDireccion, modelo, setModelo, selectedValue, setSelectedValue, isChecked, setIsChecked, localStorageDonar, nombre, toastifys} = useContext(contextName);
 
 const handleChange = (event) => {
     setSelectedValue(event.target.value);
@@ -55,11 +57,12 @@ function handleSubmit(e) {
                 <label htmlFor="modelo-checkbox">Click Para agregar modelo</label>
               </div>
               {isChecked && <input type="text" placeholder="Modelo" id="id-checkbox" value={modelo} onInput={(e) => setModelo(e.target.value)} />}
-              <button type="submit" className="form-button">Enviar</button>
+              <button onClick={()=> toastifys("Donacion registrada exitosamente")} className="form-button">Enviar</button>
             </div>
           </div>
         </form>
       </div>
+      <ToastContainer />
     </div>
   )
 }

@@ -31,9 +31,10 @@ export function Perfil() {
     }
     console.log(cambiarPass)
     return (
-        <div>
-            <p>Perfil</p>
-            <p>Foto de perfil: {foto ? <img src={foto} alt="Foto de perfil" width="800" height="300"/> : <img src={localStorageGet().foto} alt="Foto de perfil" width="800" height="300"/>}</p>
+        <div className='perfil'>
+            <h2>Perfil</h2>
+            <p>Foto de perfil:</p>
+            {foto ? <img src={foto} alt="Foto de perfil" width="200" height="300"/> : <img src={localStorageGet().foto} alt="Foto de perfil" width="800" height="300"/>}
             <input type="file" onChange={(event) => {
                 const archivo = event.target.files[0];
                 if (archivo) {
@@ -63,7 +64,7 @@ export function Perfil() {
                     return (
                         <div key={e.id} className='card'>
                             {foto ? <img src={foto} alt="Foto de perfil" width="50" height="50"/> : <img src={localStorageGet().foto} alt="Foto de perfil" width="50" height="50"/>}
-                            <p>Nombre: {e.nombre}</p>
+                            <p>Nombre: {localStorageGet().nombre}</p>
                             <p>Nombre del negocio: {e.negocio}</p>
                             <p>Direccion del negocio: {e.direccion}</p>
                             <p>Dispositivo: {e.dispositivo}</p>
@@ -71,7 +72,7 @@ export function Perfil() {
                         </div>
                     )
                 })}
-            </div>
+                </div>
         <ToastContainer />
         </div>
     );
