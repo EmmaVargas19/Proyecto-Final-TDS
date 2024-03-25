@@ -38,7 +38,7 @@ function App() {
         <Route path="/donar" element={<Donar/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/perfil" element={<Perfil/>}/>
-        <Route path="*" element={<h1>404</h1>}/>
+        <Route path="*" element={<h1>Ruta no encontrada porque no esta definida, manin, muevase por los apartados definidos, si ute se mete aqui es 404</h1>}/>
       </Route>
     </Routes>
   );

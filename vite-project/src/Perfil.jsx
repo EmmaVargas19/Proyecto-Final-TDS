@@ -19,7 +19,7 @@ export function Perfil() {
 
     function cambiarPass(){
         if (localStorage.getItem(user) !== null) {
-            if (localStorageGet().password === password && password === confirmPassword) {
+            if (localStorageGet() && localStorageGet().password === password && password === confirmPassword) {
                 localStorageSavePassword()
                 toastifys("Contraseña cambiada exitosamente");
             } else {
@@ -34,7 +34,7 @@ export function Perfil() {
         <div className='perfil'>
             <h2>Perfil</h2>
             <p>Foto de perfil:</p>
-            {foto ? <img src={foto} alt="Foto de perfil" width="200" height="300"/> : <img src={localStorageGet().foto} alt="Foto de perfil" width="800" height="300"/>}
+            {foto ? <img src={foto} alt="Foto de perfil" width="200" height="300"/> : <img src={localStorageGet()  && localStorageGet().foto} alt="Foto de perfil" width="800" height="300"/>}
             <input type="file" onChange={(event) => {
                 const archivo = event.target.files[0];
                 if (archivo) {
@@ -47,7 +47,7 @@ export function Perfil() {
                 }
             }} />
             <button onClick={localStorageFoto}>Guardar foto</button>
-            <p>Nombre: {localStorageGet().nombre}</p>
+            <p>Nombre: {localStorageGet()  && localStorageGet().nombre}</p>
             <p>Nombre de usuario: {user}</p>
             <p>Cambiar Contraseña</p>
             <input type="password" placeholder="Contraseña Nueva" onInput={(e)=> setNewPassword(e.target.value)}/>
@@ -60,11 +60,12 @@ export function Perfil() {
             <button onClick={handleDeleteProfile}>Borrar perfil</button>
             <h2>Dispositivos donados</h2>
             <div className='gridejem'>
-                {localStorageGet().donados.map((e) => {
+                {localStorageGet()  && localStorageGet().donados.map((e) => {
                     return (
                         <div key={e.id} className='card'>
-                            {foto ? <img src={foto} alt="Foto de perfil" width="50" height="50"/> : <img src={localStorageGet().foto} alt="Foto de perfil" width="50" height="50"/>}
-                            <p>Nombre: {localStorageGet().nombre}</p>
+                            {foto ? <img src={foto} alt="Foto de perfil" width="50" height="50"/> : <img src={localStorageGet() && localStorageGet().foto} alt="Foto de perfil" width="50" height="50"/>}
+                            <p>Nombre: {localStorageGet() 
+                             && localStorageGet().nombre}</p>
                             <p>Nombre del negocio: {e.negocio}</p>
                             <p>Direccion del negocio: {e.direccion}</p>
                             <p>Dispositivo: {e.dispositivo}</p>

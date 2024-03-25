@@ -20,6 +20,23 @@ const [selectedValue, setSelectedValue] = useState('');
 const [isChecked, setIsChecked] = useState(false);
 
 
+useEffect(() => {
+    if (localStorage.getItem("preU")) {
+        setUser(JSON.parse(localStorage.getItem("preU")));
+    }  else if(user !== ""){
+        localStorage.setItem("preU", user);
+    }
+}, [user]);
+
+useEffect(() => {
+    if (localStorage.getItem("preL")) {
+        setLogged(JSON.parse(localStorage.getItem("preL")));
+    } else if(logged !== false){
+        localStorage.setItem("preL", JSON.stringify(logged));
+    } 
+}, [logged]);
+
+
 function normal (){
     setLogged(true)
     alert("Inscrito")

@@ -6,7 +6,7 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 export function Donar() {
-const {nombreNegocio, setNombreNegocio, direccion, setDireccion, modelo, setModelo, selectedValue, setSelectedValue, isChecked, setIsChecked, localStorageDonar, nombre, toastifys} = useContext(contextName);
+const {nombreNegocio, setNombreNegocio, direccion, setDireccion, modelo, setModelo, selectedValue, setSelectedValue, isChecked, setIsChecked, localStorageDonar, nombre, toastifys, toastifye} = useContext(contextName);
 
 const handleChange = (event) => {
     setSelectedValue(event.target.value);
@@ -18,12 +18,17 @@ setIsChecked(e.target.checked);
 
 function handleSubmit(e) {
     e.preventDefault();
-    localStorageDonar({nombre: nombre, negocio: nombreNegocio, direccion, dispositivo: selectedValue, modelo, id: crypto.randomUUID()})
-    setNombreNegocio("")
-    setDireccion("")
-    setModelo("")
-    setSelectedValue("")
-    setIsChecked(false)
+    if (!nombreNegocio || !direccion || !selectedValue) {
+        return toastifye("Por favor llena todos los campos");
+    } else {
+      localStorageDonar({nombre: nombre, negocio: nombreNegocio, direccion, dispositivo: selectedValue, modelo, id: crypto.randomUUID()})
+      setNombreNegocio("")
+      setDireccion("")
+      setModelo("")
+      setSelectedValue("")
+      setIsChecked(false)
+      toastifys("Donacion registrada exitosamente")
+  }
 }
   return (
     <div className="donar-container">
@@ -57,7 +62,7 @@ function handleSubmit(e) {
                 <label htmlFor="modelo-checkbox">Click Para agregar modelo</label>
               </div>
               {isChecked && <input type="text" placeholder="Modelo" id="id-checkbox" value={modelo} onInput={(e) => setModelo(e.target.value)} />}
-              <button onClick={()=> toastifys("Donacion registrada exitosamente")} className="form-button">Enviar</button>
+              <button className="form-button">Enviar</button>
             </div>
           </div>
         </form>
