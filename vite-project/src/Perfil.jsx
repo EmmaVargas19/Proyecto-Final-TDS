@@ -5,12 +5,16 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export function Perfil() {
-    const { user, password,setPassword, confirmPassword, setConfirmPassword, setNewPassword,setLogged, localStorageDelete, localStorageGet,localStorageSavePassword, localStorageFoto,toastifye, toastifys,foto ,setFoto } = useContext(contextName);
+    const { user,setUser ,password,setPassword, confirmPassword, setConfirmPassword, setNewPassword,setLogged, localStorageDelete, localStorageGet,localStorageSavePassword, localStorageFoto,toastifye, toastifys,foto ,setFoto } = useContext(contextName);
     const navigate = useNavigate(); // Utiliza useNavigate para obtener el objeto de navegación
 
     const handleDeleteProfile = () => {
         localStorageDelete();
         setLogged(false);
+        localStorage.removeItem("preU");
+        localStorage.removeItem("preL");
+        setUser("");
+        setPassword("");
         // Navega a la página de inicio
         navigate("/");
         // Muestra un toastify de usuario eliminado

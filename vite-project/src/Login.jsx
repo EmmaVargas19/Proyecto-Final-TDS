@@ -49,7 +49,7 @@ const handleSubmit = (e) => {
             <form className="form" onSubmit={handleSubmit}>
               <label>
                 <box-icon name='user' ></box-icon>
-                <input type="text" placeholder="Usuario" value={user} onInput={(e) => setUser(e.target.value)}/>
+                <input type="text" placeholder="Usuario" value={user} onInput={(e) => {setUser(e.target.value); localStorage.removeItem("preU");}}/>
                 </label>
                 <label>
                   <box-icon name='lock-alt' ></box-icon>
