@@ -22,10 +22,11 @@ const [isChecked, setIsChecked] = useState(false);
 
 useEffect(() => {
     if (localStorage.getItem("preU")) {
-        setUser(JSON.parse(localStorage.getItem("preU")));
+        setUser(localStorage.getItem("preU"));
     }  else if(user !== ""){
         localStorage.setItem("preU", user);
     }
+    console.log(localStorage.getItem("preU"))
 }, [user]);
 
 useEffect(() => {
