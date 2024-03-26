@@ -33,7 +33,7 @@ useEffect(() => {
         setLogged(JSON.parse(localStorage.getItem("preL")));
     } else if(logged !== false){
         localStorage.setItem("preL", JSON.stringify(logged));
-    } 
+    }
 }, [logged]);
 
 
