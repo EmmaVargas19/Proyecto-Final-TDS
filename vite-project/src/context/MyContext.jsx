@@ -17,6 +17,8 @@ const [nombreNegocio, setNombreNegocio] = useState('');
 const [direccion, setDireccion] = useState('');
 const [modelo, setModelo] = useState('');
 const [selectedValue, setSelectedValue] = useState('');
+const [otro, setOtro] = useState('');
+const [textArea, setTextArea] = useState('');
 const [isChecked, setIsChecked] = useState(false);
 
 
@@ -137,6 +139,8 @@ return (
         direccion, setDireccion,
         modelo, setModelo,
         selectedValue, setSelectedValue,
+        otro, setOtro,
+        textArea, setTextArea,
         isChecked, setIsChecked
     }}>
         {children}

@@ -4,9 +4,10 @@ import './Donar.css';
 import 'boxicons';
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { Otros } from "./Otros.jsx";
 
 export function Donar() {
-const {nombreNegocio, setNombreNegocio, direccion, setDireccion, modelo, setModelo, selectedValue, setSelectedValue, isChecked, setIsChecked, localStorageDonar, nombre, toastifys, toastifye} = useContext(contextName);
+const {nombreNegocio, setNombreNegocio, direccion, setDireccion, modelo, setModelo, selectedValue, setSelectedValue, isChecked, setIsChecked, localStorageDonar, nombre, toastifys, toastifye, otro, setOtro, textArea, setTextArea} = useContext(contextName);
 
 const handleChange = (event) => {
     setSelectedValue(event.target.value);
@@ -21,15 +22,19 @@ function handleSubmit(e) {
     if (!nombreNegocio || !direccion || !selectedValue) {
         return toastifye("Por favor llena todos los campos");
     } else {
-      localStorageDonar({nombre: nombre, negocio: nombreNegocio, direccion, dispositivo: selectedValue, modelo, id: crypto.randomUUID()})
+      const valor = selectedValue === "otros" ? otro : selectedValue
+      localStorageDonar({nombre: nombre, negocio: nombreNegocio, direccion, dispositivo: valor, descripcion: textArea, modelo, id: crypto.randomUUID()})
       setNombreNegocio("")
       setDireccion("")
       setModelo("")
       setSelectedValue("")
+      setOtro("")
+      setTextArea("")
       setIsChecked(false)
       toastifys("Donacion registrada exitosamente")
   }
 }
+console.log(selectedValue)
   return (
     <div className="donar-container">
       <div className="left-image-container">
@@ -56,7 +61,9 @@ function handleSubmit(e) {
                 <option value="tableta">tableta</option>
                 <option value="teclado">teclado</option>
                 <option value="mouse">mouse</option>
+                <option value="otros">otros</option>
               </select>
+              {selectedValue === "otros" && <Otros/>}
               <div className="form-checkbox">
                 <input type="checkbox" id="modelo-checkbox" checked={isChecked} onChange={handleCheckboxChange} value={isChecked} />
                 <label htmlFor="modelo-checkbox">Click Para agregar modelo</label>

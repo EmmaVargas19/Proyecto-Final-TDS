@@ -73,6 +73,7 @@ export function Perfil() {
                             <p>Nombre del negocio: {e.negocio}</p>
                             <p>Direccion del negocio: {e.direccion}</p>
                             <p>Dispositivo: {e.dispositivo}</p>
+                            <p>Descripcion: {e.descripcion}</p>
                             <p>Modelo: {e.modelo}</p>
                         </div>
                     )
