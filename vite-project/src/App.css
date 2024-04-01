@@ -193,13 +193,22 @@ toma el espacio disponible 100 de width o height? si dependiendo de la direccion
   padding: 1rem;
   color: black;
   background-color: rgba(185, 185, 185, 0.575);
+
+  > img {
+    width: 100%;
+    height: 10rem;
+    border-radius: 10px;
+  }
+
+  > .evento-desc {
+    color: red;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
 
-.evento img {
-  width: 100%;
-  height: 10rem;
-  border-radius: 10px;
-}
 
 .gridejem {
   margin: 1rem;
