@@ -191,7 +191,6 @@ toma el espacio disponible 100 de width o height? si dependiendo de la direccion
 .evento {
   border-radius: 10px;
   padding: 1rem;
-  color: black;
   background-color: rgba(185, 185, 185, 0.575);
 
   > img {
@@ -201,14 +200,30 @@ toma el espacio disponible 100 de width o height? si dependiendo de la direccion
   }
 
   > .evento-desc {
-    color: red;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
 }
 
+.evento-desc.evento-ani {
+  -webkit-line-clamp: 0;
+  -webkit-box-orient: horizontal;
+  overflow: visible;
+}
+/* 
+@keyframes animacion {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} */
 
 .gridejem {
   margin: 1rem;

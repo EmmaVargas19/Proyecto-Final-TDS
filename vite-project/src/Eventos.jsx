@@ -6,10 +6,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import './App.css'
 
 export function Eventos() {
-    const [eventosInscritos, setEventosInscritos] = useState([]);
-    const [mostrar, setMostrar] = useState(false);
-    const [objId, setObjId] = useState(null);
     const { user, logged, toastifye, localStorageGet, localStorageGetEdit, localStorageGetBorrar } = useContext(contextName);
+    const [eventosInscritos, setEventosInscritos] = useState([...localStorageGet().inscrito]);
+/*     const initialEventosInscritos = localStorageGet() !== null ? localStorageGet().inscrito || [] : [];
+const [eventosInscritos, setEventosInscritos] = useState(initialEventosInscritos);
+ */
+    const [mostrar, setMostrar] = useState(false);
+    const [objId, setObjId] = useState([]);
+    
     const events = [
         { name: "Evento 1", date: "2021-10-10",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. In dolorum, repellendus doloremque ducimus tenetur consequatur veritatis suscipit eveniet quidem debitis?",
@@ -51,19 +55,32 @@ console.log(localStorageGet() + "soy local storage get")
 
     function leer (obj)  {
         setMostrar(!mostrar)
-        setObjId(obj.id)
-    }
+        if(objId.some(objeto => objeto === obj.id)){
+            const filtrado = objId.filter(objeto => objeto !== obj.id)
+            setObjId(filtrado)
+        } else {
+            setObjId([...objId,obj.id])
+        }
+    }/* 
+
+    const leer = (obj) => {
+        setMostrar(!mostrar);
+        if (objId.includes(obj.id)) { // Verificar si el ID del evento ya está en objId
+            setObjId(objId.filter(id => id !== obj.id)); // Si ya está, eliminarlo
+        } else {
+            setObjId([...objId, obj.id]); // Si no está, agregarlo
+        }
+    }; */
 console.log(objId)
 console.log(mostrar)
     const mapeo = events.map((obj) => {
     const edam = useRef(null)
-    console.log(edam)
     return (
-        <div key={obj.id} className="evento" ref={edam}>
+        <div key={obj.id} className="evento">
             <img src={obj.img} alt={`Evento ${obj.id}`} title={`Imagen del evento ${obj.name}`} />
             <h3>{obj.name}</h3>
             <p>{obj.date}</p>
-            <p className={mostrar ? "evento-desc" : ""}>{obj.description}</p>
+            <p className={`evento-desc${objId.some(objeto => objeto === obj.id) ? " evento-ani" : ""}`}>{obj.description}</p>
             <button onClick={()=> leer(obj)}>{mostrar && objId === obj.id ? "Leer menos" : "Leer mas"}</button>
             <button onClick={() => saber(obj) ? toastifye("Ya estas inscrito a este evento") : handleInscribirse(obj)}>{saber(obj) ? "Inscrito" : "Inscribirse"}</button>
         </div>

@@ -26,6 +26,7 @@ export function Inicio() {
     // Devolver el tamaño total en bytes
     return totalSize;
 }
+
 /* localStorage.clear() */
 // Llamamos a la función para obtener el tamaño aproximado de localStorage
 const localStorageSize = calculateLocalStorageSize();
@@ -53,6 +54,7 @@ useEffect(()=>{
   }
 },[user, logged, toastifys])
 
+
 console.log(nombre, logged, user, password)
 const goToNextSlide = () => {
       setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
@@ -63,8 +65,6 @@ const goToNextSlide = () => {
     };
 
 
-const ejem = localStorageGet()
-console.log(ejem)
   return (
     <>
     <div className='carousel'>
