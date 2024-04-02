@@ -29,6 +29,7 @@ function App() {
     } 
   },[location.pathname, location.hash])
 
+  
   return (
     <Routes>
       <Route path="/" element={<NavBarr/>}>

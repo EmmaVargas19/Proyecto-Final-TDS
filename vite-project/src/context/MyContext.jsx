@@ -1,11 +1,13 @@
 import { createContext, useEffect, useState } from "react";
 import { toast } from 'react-toastify';
 import '../App.css'
+import { useNavigate } from "react-router";
 
 export const contextName = createContext()
 
 export function MyContext ({children}){
-const [user, setUser] = useState("")
+const [isChecking, setIsChecking] = useState(true);
+const [user, setUser] = useState(localStorage.getItem("preU") || "")
 const [password, setPassword] = useState("")
 const [confirmPassword, setConfirmPassword] = useState("");
 const [newPassword, setNewPassword] = useState("")
@@ -21,14 +23,12 @@ const [otro, setOtro] = useState('');
 const [textArea, setTextArea] = useState('');
 const [isChecked, setIsChecked] = useState(false);
 
+const navigate = useNavigate();
 
 useEffect(() => {
-    if (localStorage.getItem("preU")) {
-        setUser(localStorage.getItem("preU"));
-    }  else if(user !== ""){
+    if(user !== ""){
         localStorage.setItem("preU", user);
     }
-    console.log(localStorage.getItem("preU"))
 }, [user]);
 
 useEffect(() => {
@@ -65,6 +65,7 @@ function localStorageFoto() {
 function localStorageGet (){
     const data = localStorage.getItem(`${user}`)
     const dataParsed = JSON.parse(data)
+    console.log({dataParsed})
     return dataParsed
 }
 
@@ -107,6 +108,20 @@ function toastifys (value){
 function ejem (){
     setUser("ejem")
 }
+
+useEffect(() => {
+    const isPageRefreshed = () => {
+      return !window.performance || window.performance.navigation.type === window.performance.navigation.TYPE_RELOAD;
+    };
+
+    if (isPageRefreshed()) {
+      navigate('/'); // Redirige a la ruta principal si la página se ha recargado
+    }
+
+    setIsChecking(false);
+  }, []);
+
+
 return (
     <contextName.Provider value={{
         localStorageFoto,
@@ -143,7 +158,7 @@ return (
         textArea, setTextArea,
         isChecked, setIsChecked
     }}>
-        {children}
+        {!isChecking && children}
     </contextName.Provider>
 )
 }

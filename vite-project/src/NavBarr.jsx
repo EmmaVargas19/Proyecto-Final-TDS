@@ -1,5 +1,5 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { contextName } from "./context/MyContext.jsx";
 import { useEffect } from "react";
 import './App.css';
@@ -9,15 +9,7 @@ import 'boxicons';
 export function NavBarr() {
   const {setUser, setPassword, logged, setLogged, setShowedToast, setNombre} = useContext(contextName)
   const navigate = useNavigate();
-  useEffect(() => {
-    const isPageRefreshed = () => {
-      return !window.performance || window.performance.navigation.type === window.performance.navigation.TYPE_RELOAD;
-    };
 
-    if (isPageRefreshed()) {
-      navigate('/'); // Redirige a la ruta principal si la página se ha recargado
-    }
-  }, []);
   return (
     <>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'></link>
