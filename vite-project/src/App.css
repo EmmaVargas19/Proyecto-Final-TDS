@@ -204,6 +204,7 @@ toma el espacio disponible 100 de width o height? si dependiendo de la direccion
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    transition: height 0.3s ease;
   }
 
 }

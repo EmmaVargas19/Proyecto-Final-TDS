@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom'; // Importa useNavigate desde react-router-dom
 import { contextName } from './context/MyContext.jsx';
 import { ToastContainer } from 'react-toastify';
@@ -8,6 +8,10 @@ export function Perfil() {
     const { user,setUser ,password,setPassword, confirmPassword, setConfirmPassword, setNewPassword,setLogged, localStorageDelete, localStorageGet,localStorageSavePassword, localStorageFoto,toastifye, toastifys,foto ,setFoto } = useContext(contextName);
     const navigate = useNavigate(); // Utiliza useNavigate para obtener el objeto de navegación
 
+    const [borrarPerfil, setBorrarPerfil] = useState(false); // Crea un estado para controlar la visibilidad del mensaje de confirmación de eliminación de perfil
+    function handleDeleteProfilePop(){
+        setBorrarPerfil(!borrarPerfil);
+    }
     const handleDeleteProfile = () => {
         localStorageDelete();
         setLogged(false);
@@ -61,7 +65,8 @@ export function Perfil() {
             <input type="password" placeholder="Repetir contraseña actual" onInput={(e)=> setConfirmPassword(e.target.value)}/>
             <br />
             <button onClick={cambiarPass}>Guardar</button>
-            <button onClick={handleDeleteProfile}>Borrar perfil</button>
+            <button onClick={handleDeleteProfilePop}>Borrar perfil</button>
+            {borrarPerfil && <div><p>¿Estás seguro de que deseas borrar tu perfil?</p><button onClick={handleDeleteProfile}>Sí</button><button onClick={handleDeleteProfilePop}>No</button></div>}
             <h2>Dispositivos donados</h2>
             <div className='gridejem'>
                 {localStorageGet()  && localStorageGet().donados.map((e) => {
