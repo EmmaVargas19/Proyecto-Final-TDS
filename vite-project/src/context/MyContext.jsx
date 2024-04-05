@@ -87,6 +87,12 @@ function localStorageDonar(obj){
     localStorage.setItem(`${user}`, JSON.stringify(data))
 }
 
+function localStorageDonados(obj){
+    const data = localStorageGet()
+    data.donados = obj
+    localStorage.setItem(`${user}`, JSON.stringify(data))
+}
+
 function localStorageGetBorrar(obj) {
     const data = localStorageGet()
     data.inscrito = obj
@@ -139,6 +145,7 @@ return (
         localStorageGetEdit,
         localStorageSavePassword,
         localStorageDonar,
+        localStorageDonados,
         localStorageGetBorrar,
         localStorageDelete,
         showedToast,

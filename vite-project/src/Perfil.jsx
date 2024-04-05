@@ -5,7 +5,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export function Perfil() {
-    const { user,setUser ,password,setPassword, confirmPassword, setConfirmPassword, setNewPassword,setLogged, localStorageDelete, localStorageGet,localStorageSavePassword, localStorageFoto,toastifye, toastifys,foto ,setFoto } = useContext(contextName);
+    const { user,setUser ,password,setPassword, confirmPassword, setConfirmPassword, setNewPassword,setLogged, localStorageDelete, localStorageDonados, localStorageGet,localStorageSavePassword, localStorageFoto,toastifye, toastifys,foto ,setFoto } = useContext(contextName);
+    const [dispositivosDonados, setDispositivosDonados] = useState(localStorageGet().donados || []); // Crea un estado para almacenar los dispositivos donados (inicialmente vacío
     const navigate = useNavigate(); // Utiliza useNavigate para obtener el objeto de navegación
 
     const [borrarPerfil, setBorrarPerfil] = useState(false); // Crea un estado para controlar la visibilidad del mensaje de confirmación de eliminación de perfil
@@ -37,6 +38,13 @@ export function Perfil() {
             toastifye("Usuario no encontrado");
         }
     }
+
+    function borrar(id){
+        const newDonados = dispositivosDonados.filter((e) => e.id !== id);
+        setDispositivosDonados(newDonados);
+        localStorageDonados(newDonados);
+    }
+    
     console.log(cambiarPass)
     return (
         <div className='perfil'>
@@ -69,7 +77,7 @@ export function Perfil() {
             {borrarPerfil && <div><p>¿Estás seguro de que deseas borrar tu perfil?</p><button onClick={handleDeleteProfile}>Sí</button><button onClick={handleDeleteProfilePop}>No</button></div>}
             <h2>Dispositivos donados</h2>
             <div className='gridejem'>
-                {localStorageGet()  && localStorageGet().donados.map((e) => {
+                {dispositivosDonados.map((e) => {
                     return (
                         <div key={e.id} className='card'>
                             {foto ? <img src={foto} alt="Foto de perfil" width="50" height="50"/> : <img src={localStorageGet() && localStorageGet().foto} alt="Foto de perfil" width="50" height="50"/>}
@@ -80,6 +88,7 @@ export function Perfil() {
                             <p>Dispositivo: {e.dispositivo}</p>
                             <p>Descripcion: {e.descripcion}</p>
                             <p>Modelo: {e.modelo}</p>
+                            <button onClick={()=>borrar(e.id)}>borrar</button>
                         </div>
                     )
                 })}
