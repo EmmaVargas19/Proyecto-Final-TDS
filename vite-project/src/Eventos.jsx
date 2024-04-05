@@ -7,7 +7,7 @@ import './App.css'
 
 export function Eventos() {
     const { user, logged, toastifye, localStorageGet, localStorageGetEdit, localStorageGetBorrar } = useContext(contextName);
-    const [eventosInscritos, setEventosInscritos] = useState([...localStorageGet().inscrito]);
+    const [eventosInscritos, setEventosInscritos] = useState(user && logged ? localStorageGet().inscrito : []);
  // en que momento guardas en el local storage? 
 /*     const initialEventosInscritos = localStorageGet() !== null ? localStorageGet().inscrito || [] : [];
 const [eventosInscritos, setEventosInscritos] = useState(initialEventosInscritos);

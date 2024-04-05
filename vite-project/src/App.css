@@ -204,7 +204,7 @@ toma el espacio disponible 100 de width o height? si dependiendo de la direccion
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    transition: height 0.3s ease;
+    animation: animacion2 2s ease forwards;
   }
 
 }
@@ -213,7 +213,26 @@ toma el espacio disponible 100 de width o height? si dependiendo de la direccion
   -webkit-line-clamp: 0;
   -webkit-box-orient: horizontal;
   overflow: visible;
+  opacity: 0;
+  animation: animacion 2s ease forwards;
 }
+
+@keyframes animacion {
+  to {
+    opacity: 1;
+    transform: translateY(1px);
+  }
+}
+
+/* @keyframes animacion2 {
+
+  from {
+    height: 300px;
+  }
+  to {
+    height: 500px;
+  }
+} */
 /* 
 @keyframes animacion {
   from {
