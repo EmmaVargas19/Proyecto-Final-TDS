@@ -16,7 +16,7 @@ export function NavBarr() {
     <div className="navbar">
     <ul>
     <div className="hijo">
-    <img src="src/img/logo.png" alt="" />
+    <img src="src/img/logo.png" alt="" width={80} height={80} />
     <li><Link to={'/'}>Inicio</Link></li>
     <li><Link to={'/eventos'}>Eventos</Link></li>
     {logged ? <li><Link to={'/donar'}>Donar</Link></li> : null}

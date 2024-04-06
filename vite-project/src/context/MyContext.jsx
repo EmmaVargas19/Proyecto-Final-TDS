@@ -121,6 +121,7 @@ useEffect(() => {
     };
 
     if (isPageRefreshed()) {
+    
       navigate('/'); // Redirige a la ruta principal si la página se ha recargado
     }
 
