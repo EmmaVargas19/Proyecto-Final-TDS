@@ -20,6 +20,7 @@ const [direccion, setDireccion] = useState('');
 const [modelo, setModelo] = useState('');
 const [selectedValue, setSelectedValue] = useState('');
 const [otro, setOtro] = useState('');
+const [ong,setOng] = useState("")
 const [textArea, setTextArea] = useState('');
 const [isChecked, setIsChecked] = useState(false);
 
@@ -93,6 +94,13 @@ function localStorageDonados(obj){
     localStorage.setItem(`${user}`, JSON.stringify(data))
 }
 
+function localStorageOng(obj){
+    const data = localStorage.getItem(ong)
+    const dataParsed = JSON.parse(data)
+    dataParsed.donaciones = [...dataParsed.donaciones, obj]
+    localStorage.setItem(ong, JSON.stringify(dataParsed))
+}
+
 function localStorageGetBorrar(obj) {
     const data = localStorageGet()
     data.inscrito = obj
@@ -147,6 +155,7 @@ return (
         localStorageSavePassword,
         localStorageDonar,
         localStorageDonados,
+        localStorageOng,
         localStorageGetBorrar,
         localStorageDelete,
         showedToast,
@@ -163,6 +172,7 @@ return (
         modelo, setModelo,
         selectedValue, setSelectedValue,
         otro, setOtro,
+        ong, setOng,
         textArea, setTextArea,
         isChecked, setIsChecked
     }}>

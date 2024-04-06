@@ -26,7 +26,7 @@ export function Inicio() {
     // Devolver el tamaño total en bytes
     return totalSize;
 }
-
+localStorage.setItem("DMAA", JSON.stringify({donaciones: []}))
 /* localStorage.clear() */
 // Llamamos a la función para obtener el tamaño aproximado de localStorage
 const localStorageSize = calculateLocalStorageSize();
@@ -79,8 +79,6 @@ const goToNextSlide = () => {
       >
         {images.map((obj) => (
           <div key={obj.id} className="slide">
-            <img src={obj.img} alt="foto de perfil!@#!@#!@#!@#!@#" className="foto-perfil"/>
-
             <motion.img
               src={obj.img}
               title={`Este es el slide con el mensaje ${obj.message}`}

@@ -7,33 +7,41 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Otros } from "./Otros.jsx";
 
 export function Donar() {
-const {nombreNegocio, setNombreNegocio, direccion, setDireccion, modelo, setModelo, selectedValue, setSelectedValue, isChecked, setIsChecked, localStorageDonar, nombre, toastifys, toastifye, otro, setOtro, textArea, setTextArea} = useContext(contextName);
-
+const {user, nombreNegocio, setNombreNegocio, direccion, setDireccion, modelo, setModelo, selectedValue, setSelectedValue, isChecked, setIsChecked, localStorageDonar,localStorageOng ,nombre, toastifys, toastifye, otro, setOtro, textArea, setTextArea, ong, setOng} = useContext(contextName);
 const handleChange = (event) => {
     setSelectedValue(event.target.value);
 };
 
+function handleChangeOng (e){
+    setOng(e.target.value)
+}
+
 const handleCheckboxChange = (e) => {
 setIsChecked(e.target.checked);
 };
-
+console.log(ong)
 function handleSubmit(e) {
     e.preventDefault();
     if (!nombreNegocio || !direccion || !selectedValue) {
         return toastifye("Por favor llena todos los campos");
     } else {
       const valor = selectedValue === "otros" ? otro : selectedValue
-      localStorageDonar({nombre: nombre, negocio: nombreNegocio, direccion, dispositivo: valor, descripcion: textArea, modelo, id: crypto.randomUUID()})
+      const objDonar = {nombre: nombre, negocio: nombreNegocio, direccion, dispositivo: valor, descripcion: textArea, modelo, ong ,statusDonacion: "pendiente" ,id: crypto.randomUUID()}
+      localStorageDonar(objDonar)
+      localStorageOng({donante: user, donacion: objDonar})
       setNombreNegocio("")
       setDireccion("")
       setModelo("")
       setSelectedValue("")
       setOtro("")
       setTextArea("")
+      setOng("")
       setIsChecked(false)
       toastifys("Donacion registrada exitosamente")
   }
 }
+
+console.log(localStorage.getItem(ong))
 console.log(selectedValue)
   return (
     <div className="donar-container">
@@ -54,6 +62,13 @@ console.log(selectedValue)
                 <box-icon name='location-plus' type='solid'></box-icon>
                 <input type="text" placeholder="Direccion" onInput={(e)=> setDireccion(e.target.value)} value={direccion}/>
               </div>
+              <select value={ong} onChange={handleChangeOng} className="form-select">
+                <option value="">Ong donde quiero donar</option>
+                <option value="DMAA">Ong1</option>
+                <option value="MPMC">Ong2</option>
+                <option value="SBH">Ong3</option>
+                <option value="IVN">Ong4</option>
+              </select>
               <select value={selectedValue} onChange={handleChange} className="form-select">
                 <option value="">Selecciona un dispositivo a donar</option>
                 <option value="teléfono">telefono</option>

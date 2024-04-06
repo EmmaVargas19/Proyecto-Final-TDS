@@ -46,6 +46,24 @@ export function Perfil() {
     }
     
     console.log(cambiarPass)
+
+    const mapeoDonados = dispositivosDonados.map((e) => {
+        return (
+            <div key={e.id} className='card'>
+                {foto ? <img src={foto} alt="Foto de perfil" width="50" height="50"/> : <img src={localStorageGet() && localStorageGet().foto} alt="Foto de perfil" width="50" height="50"/>}
+                <p>Nombre: {localStorageGet() 
+                 && localStorageGet().nombre}</p>
+                <p>Nombre del negocio: {e.negocio}</p>
+                <p>Direccion del negocio: {e.direccion}</p>
+                <p>Dispositivo: {e.dispositivo}</p>
+                <p>Descripcion: {e.descripcion}</p>
+                <p>Modelo: {e.modelo}</p>
+                <p>Donacion a la ong: {e.ong}</p>
+                <p>Estado: {e.statusDonacion}</p>
+                <button onClick={()=>borrar(e.id)}>borrar</button>
+            </div>
+        )
+    });
     return (
         <div className='perfil'>
             <h2>Perfil</h2>
@@ -77,21 +95,7 @@ export function Perfil() {
             {borrarPerfil && <div><p>¿Estás seguro de que deseas borrar tu perfil?</p><button onClick={handleDeleteProfile}>Sí</button><button onClick={handleDeleteProfilePop}>No</button></div>}
             <h2>Dispositivos donados</h2>
             <div className='gridejem'>
-                {dispositivosDonados.map((e) => {
-                    return (
-                        <div key={e.id} className='card'>
-                            {foto ? <img src={foto} alt="Foto de perfil" width="50" height="50"/> : <img src={localStorageGet() && localStorageGet().foto} alt="Foto de perfil" width="50" height="50"/>}
-                            <p>Nombre: {localStorageGet() 
-                             && localStorageGet().nombre}</p>
-                            <p>Nombre del negocio: {e.negocio}</p>
-                            <p>Direccion del negocio: {e.direccion}</p>
-                            <p>Dispositivo: {e.dispositivo}</p>
-                            <p>Descripcion: {e.descripcion}</p>
-                            <p>Modelo: {e.modelo}</p>
-                            <button onClick={()=>borrar(e.id)}>borrar</button>
-                        </div>
-                    )
-                })}
+                {mapeoDonados}
                 </div>
         <ToastContainer />
         </div>
