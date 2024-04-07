@@ -95,10 +95,20 @@ function localStorageDonados(obj){
 }
 
 function localStorageOng(obj){
-    const data = localStorage.getItem(ong)
-    const dataParsed = JSON.parse(data)
-    dataParsed.donaciones = [...dataParsed.donaciones, obj]
-    localStorage.setItem(ong, JSON.stringify(dataParsed))
+    const data = localStorage.getItem(ong);
+    const dataParsed = JSON.parse(data);
+    
+    const existingDonationIndex = dataParsed.donaciones.findIndex(item => item.donante === user);
+    if (existingDonationIndex !== -1) {
+        // Si el donante ya existe en las donaciones, actualizamos su donación
+        const existingDonation = dataParsed.donaciones[existingDonationIndex];
+        existingDonation.donacion.push(obj.donacion); // Agregamos la nueva donación al arreglo existente
+        localStorage.setItem(ong, JSON.stringify(dataParsed));
+    } else {
+        // Si el donante no existe en las donaciones, simplemente agregamos la nueva donación
+        dataParsed.donaciones.push({ donante: user, donacion: [obj.donacion] });
+        localStorage.setItem(ong, JSON.stringify(dataParsed));
+    }
 }
 
 function localStorageGetBorrar(obj) {
@@ -135,6 +145,10 @@ useEffect(() => {
 
     setIsChecking(false);
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("DMAA", JSON.stringify({ongValue: "true", password: "1" ,donaciones: []}))
+  }, [])
 
 
 return (

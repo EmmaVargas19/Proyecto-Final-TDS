@@ -7,8 +7,11 @@ import 'react-toastify/dist/ReactToastify.css';
 export function Perfil() {
     const { user,setUser ,password,setPassword, confirmPassword, setConfirmPassword, setNewPassword,setLogged, localStorageDelete, localStorageDonados, localStorageGet,localStorageSavePassword, localStorageFoto,toastifye, toastifys,foto ,setFoto } = useContext(contextName);
     const [dispositivosDonados, setDispositivosDonados] = useState(localStorageGet().donados || []); // Crea un estado para almacenar los dispositivos donados (inicialmente vacío
+    const [donaciones, setDonaciones] = useState(localStorageGet().donaciones || []); // Crea un estado para almacenar las donaciones (inicialmente vacío)
+    const [ongValue, setOngValue] = useState(localStorageGet().ongValue || false); // Crea un estado para almacenar el valor de la ong seleccionada en el formulario de donación
     const navigate = useNavigate(); // Utiliza useNavigate para obtener el objeto de navegación
-
+    console.log("esto son los dispositivos donados a la ong")
+    console.log(donaciones)
     const [borrarPerfil, setBorrarPerfil] = useState(false); // Crea un estado para controlar la visibilidad del mensaje de confirmación de eliminación de perfil
     function handleDeleteProfilePop(){
         setBorrarPerfil(!borrarPerfil);
@@ -64,6 +67,25 @@ export function Perfil() {
             </div>
         )
     });
+
+    const donacionesRecibidas = donaciones.flatMap((donante) => (
+        donante.donacion.map((donacion) => (
+            <div key={donacion.id}>
+                <p>Donante: {donante.donante}</p>
+                <p>Negocio: {donacion.negocio}</p>
+                <p>Direccion: {donacion.direccion}</p>
+                <p>Dispositivo: {donacion.dispositivo}</p>
+                <p>Descripcion: {donacion.descripcion}</p>
+                <p>Modelo: {donacion.modelo}</p>
+                <p>Donacion a la ong: {donacion.ong}</p>
+                <p>Estado: {donacion.statusDonacion}</p>
+                <button>Aceptar</button>
+                <button>Rechazar</button>
+            </div>
+        ))
+    ));
+    
+    
     return (
         <div className='perfil'>
             <h2>Perfil</h2>
@@ -95,7 +117,7 @@ export function Perfil() {
             {borrarPerfil && <div><p>¿Estás seguro de que deseas borrar tu perfil?</p><button onClick={handleDeleteProfile}>Sí</button><button onClick={handleDeleteProfilePop}>No</button></div>}
             <h2>Dispositivos donados</h2>
             <div className='gridejem'>
-                {mapeoDonados}
+                {ongValue ? donacionesRecibidas : mapeoDonados}
                 </div>
         <ToastContainer />
         </div>
