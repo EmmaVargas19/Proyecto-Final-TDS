@@ -78,9 +78,9 @@ console.log(mostrar)
     const edam = useRef(null)
     return (
         <div key={obj.id} className="evento">
-            <img src={obj.img} alt={`Evento ${obj.id}`} title={`Imagen del evento ${obj.name}`} />
+            <img src={obj.img} alt={`Evento ${obj.id}`} title={`Imagen del evento ${obj.name}`} style={{objectFit: "cover"}}/>
             <h3>{obj.name}</h3>
-            <p>{obj.date}</p>
+            <p>Fecha: {obj.date}</p>
             <p>{obj.description}</p>
             <button onClick={() => saber(obj) ? toastifye("Ya estas inscrito a este evento") : handleInscribirse(obj)}>{saber(obj) ? "Inscrito" : "Inscribirse"}</button>
         </div>
@@ -89,7 +89,7 @@ console.log(mostrar)
         <div key={obj.id} className="evento">
             <img src={obj.img} alt={`Evento ${obj.id}`} title={`Imagen del evento ${obj.name}`} />
             <h3>{obj.name}</h3>
-            <p>{obj.date}</p>
+            <p>Fecha: {obj.date}</p>
             <p>{obj.description}</p>
             <button onClick={()=> handleBorrar(obj)}>Borrar evento</button>
         </div>
