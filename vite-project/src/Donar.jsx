@@ -64,10 +64,10 @@ console.log(selectedValue)
               </div>
               <select value={ong} onChange={handleChangeOng} className="form-select">
                 <option value="">Ong donde quiero donar</option>
-                <option value="DMAA">Ong1</option>
-                <option value="MPMC">Ong2</option>
-                <option value="SBH">Ong3</option>
-                <option value="IVN">Ong4</option>
+                <option value="DMAA">EcoElectrónica</option>
+                <option value="MPMC">RafaPC</option>
+                <option value="SBH">ElectroCompu</option>
+                <option value="IVN">CompuCentro</option>
               </select>
               <select value={selectedValue} onChange={handleChange} className="form-select">
                 <option value="">Selecciona un dispositivo a donar</option>
