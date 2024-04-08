@@ -16,16 +16,16 @@ const [eventosInscritos, setEventosInscritos] = useState(initialEventosInscritos
     const [objId, setObjId] = useState([]);
     
     const events = [
-        { name: "Evento 1", date: "2021-10-10",
+        { name: "Evento 1", date: "2025-10-10",
         description: "Únete a nuestra jornada de limpieza comunitaria este sábado, donde trabajaremos juntos para limpiar nuestro vecindario y promover un entorno más saludable para todos. ¡Tu ayuda marca la diferencia! Seminario Virtual: Gestión de Residuos Electrónicos para un Futuro Sostenible",
         img: "src/assets/img1.jpeg", id: 1 },
-        { name: "Evento 2", date: "2021-10-11", description: "No te pierdas nuestro seminario virtual sobre la gestión de residuos electrónicos esta semana. Aprende sobre las últimas tendencias en reciclaje responsable y descubre cómo puedes contribuir al cuidado del medio ambiente desde la comodidad de tu hogar. Celebración del Día Mundial del Medio Ambiente: Unidos por un Planeta más Verde",
+        { name: "Evento 2", date: "2025-10-11", description: "No te pierdas nuestro seminario virtual sobre la gestión de residuos electrónicos esta semana. Aprende sobre las últimas tendencias en reciclaje responsable y descubre cómo puedes contribuir al cuidado del medio ambiente desde la comodidad de tu hogar. Celebración del Día Mundial del Medio Ambiente: Unidos por un Planeta más Verde",
         img: "src/assets/img2.jpeg", id: 2 },
-        { name: "Evento 3", date: "2021-10-12", description: "Ven y celebra el Día Mundial del Medio Ambiente con nosotros en nuestro evento especial al aire libre. Disfruta de actividades interactivas, talleres educativos y una feria de productos ecológicos. ¡Juntos podemos marcar el cambio! Taller de Reparación de Dispositivos Electrónicos: Extiende la Vida de tus Gadgets",
+        { name: "Evento 3", date: "2025-10-12", description: "Ven y celebra el Día Mundial del Medio Ambiente con nosotros en nuestro evento especial al aire libre. Disfruta de actividades interactivas, talleres educativos y una feria de productos ecológicos. ¡Juntos podemos marcar el cambio! Taller de Reparación de Dispositivos Electrónicos: Extiende la Vida de tus Gadgets",
         img: "src/assets/img3.jpeg", id: 3 },
-        { name: "Evento 4", date: "2021-10-13", description: "Te invitamos a nuestro taller de reparación de dispositivos electrónicos, donde aprenderás habilidades prácticas para alargar la vida útil de tus dispositivos y reducir el desperdicio electrónico. ¡Empodérate para ser parte de la solución! Ciclo de Cine Ambiental: Inspirando Acción para la Conservación del Planeta",
+        { name: "Evento 4", date: "2025-10-13", description: "Te invitamos a nuestro taller de reparación de dispositivos electrónicos, donde aprenderás habilidades prácticas para alargar la vida útil de tus dispositivos y reducir el desperdicio electrónico. ¡Empodérate para ser parte de la solución! Ciclo de Cine Ambiental: Inspirando Acción para la Conservación del Planeta",
         img: "src/assets/img4.jpeg", id: 4 },
-        { name: "Evento 5", date: "2021-10-14", description: "Acompáñanos en nuestro ciclo de cine ambiental mensual, donde proyectaremos documentales inspiradores sobre la conservación del medio ambiente y el impacto de nuestras acciones en el planeta. ¡Una noche de cine con conciencia!",
+        { name: "Evento 5", date: "2025-10-14", description: "Acompáñanos en nuestro ciclo de cine ambiental mensual, donde proyectaremos documentales inspiradores sobre la conservación del medio ambiente y el impacto de nuestras acciones en el planeta. ¡Una noche de cine con conciencia!",
         img: "src/assets/img5.jpeg", id: 5 }
     ];
 console.log(events)
