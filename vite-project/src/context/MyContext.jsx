@@ -94,10 +94,15 @@ function localStorageDonados(obj){
     localStorage.setItem(`${user}`, JSON.stringify(data))
 }
 
+function localStorageDonados2(usuario, obj){
+    const data = localStorage.getItem(usuario)
+    const dataParsed = JSON.parse(data)
+    dataParsed.donados = obj
+    localStorage.setItem(usuario, JSON.stringify(dataParsed))
+}
 function localStorageOng(obj){
     const data = localStorage.getItem(ong);
     const dataParsed = JSON.parse(data);
-    
     const existingDonationIndex = dataParsed.donaciones.findIndex(item => item.donante === user);
     if (existingDonationIndex !== -1) {
         // Si el donante ya existe en las donaciones, actualizamos su donación
@@ -169,6 +174,7 @@ return (
         localStorageSavePassword,
         localStorageDonar,
         localStorageDonados,
+        localStorageDonados2,
         localStorageOng,
         localStorageGetBorrar,
         localStorageDelete,
