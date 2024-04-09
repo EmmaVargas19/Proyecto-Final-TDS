@@ -10,13 +10,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export function Login() {
 
-const {user,setUser,password,setPassword, localStorageGet, toastifye, setLogged} = useContext(contextName)
+const {user,setUser,password,setPassword, localStorageGet, toastifye, setLogged, setIsOng} = useContext(contextName)
 const navigate = useNavigate();
 
 const handleSubmit = (e) => {
     e.preventDefault();
     if (localStorageGet() && localStorageGet().password === password) {
       setLogged(true);
+      setIsOng(localStorageGet() ? localStorageGet().ongValue || false : false)
       navigate('/');
     } else {
       toastifye('Usuario o contraseña incorrectos');

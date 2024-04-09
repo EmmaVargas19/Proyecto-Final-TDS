@@ -7,7 +7,7 @@ import 'boxicons';
 
 
 export function NavBarr() {
-  const {setUser, setPassword, logged, setLogged, setShowedToast, setNombre} = useContext(contextName)
+  const {setUser, setPassword, logged, setLogged, setShowedToast, setNombre, IsOng} = useContext(contextName)
   const navigate = useNavigate();
 
   return (
@@ -18,7 +18,7 @@ export function NavBarr() {
     <div className="hijo">
     <img src="src/img/logo.png" alt="" width={80} height={80} />
     <li><Link to={'/'}>Inicio</Link></li>
-    <li><Link to={'/eventos'}>Eventos</Link></li>
+    {IsOng ? null : <li><Link to={'/eventos'}>Eventos</Link></li>}
     {logged ? <li><Link to={'/donar'}>Donar</Link></li> : null}
     </div>
     <div className="hijo">

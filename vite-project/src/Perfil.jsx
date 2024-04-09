@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export function Perfil() {
-    const { user,setUser ,password,setPassword, confirmPassword, setConfirmPassword, setNewPassword,setLogged, localStorageDelete, localStorageDonados,localStorageDonados2 ,localStorageGet,localStorageSavePassword, localStorageFoto,toastifye, toastifys,foto ,setFoto } = useContext(contextName);
+    const { user,setUser ,password,setPassword, confirmPassword, setConfirmPassword, setNewPassword,setLogged, localStorageDelete, localStorageDonados,localStorageDonados2 ,localStorageGet,localStorageSavePassword, localStorageFoto,toastifye, toastifys,foto ,setFoto} = useContext(contextName);
     const [dispositivosDonados, setDispositivosDonados] = useState(localStorageGet().donados || []); // Crea un estado para almacenar los dispositivos donados (inicialmente vacío
     const [donaciones, setDonaciones] = useState(localStorageGet().donaciones || []); // Crea un estado para almacenar las donaciones (inicialmente vacío)
     const [ongValue, setOngValue] = useState(localStorageGet().ongValue || false); // Crea un estado para almacenar el valor de la ong seleccionada en el formulario de donación

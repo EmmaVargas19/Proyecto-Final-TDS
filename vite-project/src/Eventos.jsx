@@ -7,14 +7,13 @@ import './App.css'
 
 export function Eventos() {
     const { user, logged, toastifye, localStorageGet, localStorageGetEdit, localStorageGetBorrar } = useContext(contextName);
-    const [eventosInscritos, setEventosInscritos] = useState(user && logged ? localStorageGet().inscrito : []);
+    const [eventosInscritos, setEventosInscritos] = useState(user && logged ? localStorageGet().inscrito || [] : []);
  // en que momento guardas en el local storage? 
 /*     const initialEventosInscritos = localStorageGet() !== null ? localStorageGet().inscrito || [] : [];
 const [eventosInscritos, setEventosInscritos] = useState(initialEventosInscritos);
  */
     const [mostrar, setMostrar] = useState(false);
     const [objId, setObjId] = useState([]);
-    
     const events = [
         { name: "Limpia y Transforma", date: "2025-10-10",
         description: "Únete a nuestra jornada de limpieza comunitaria este sábado, donde trabajaremos juntos para limpiar nuestro vecindario y promover un entorno más saludable para todos. ¡Tu ayuda marca la diferencia! Seminario Virtual: Gestión de Residuos Electrónicos para un Futuro Sostenible",
@@ -106,8 +105,8 @@ console.log(mostrar)
                 {mapeo}
             </div>
             <h2>Eventos donde estoy inscrito</h2>
-            <div className={user && logged && localStorageGet().inscrito.length !== 0 ? "gridejem" : "normal"}>
-                {user && logged && localStorageGet().inscrito.length !== 0 ? mapeoEventosInscritos : <NoEventos />}
+            <div className={user && logged && eventosInscritos.lengt !== 0 ? "gridejem" : "normal"}>
+                {user && logged && eventosInscritos.length !== 0 ? mapeoEventosInscritos : <NoEventos />}
             </div>
             <ToastContainer />
         </>

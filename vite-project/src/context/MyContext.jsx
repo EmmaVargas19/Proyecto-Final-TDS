@@ -21,11 +21,12 @@ const [modelo, setModelo] = useState('');
 const [selectedValue, setSelectedValue] = useState('');
 const [otro, setOtro] = useState('');
 const [ong,setOng] = useState("")
+const [IsOng, setIsOng] = useState(false);
 const [textArea, setTextArea] = useState('');
 const [isChecked, setIsChecked] = useState(false);
-
+console.log("Soy Ong")
+console.log(IsOng)
 const navigate = useNavigate();
-
 useEffect(() => {
     if(user !== ""){
         localStorage.setItem("preU", user);
@@ -176,6 +177,7 @@ return (
         localStorageDonados,
         localStorageDonados2,
         localStorageOng,
+        IsOng, setIsOng,
         localStorageGetBorrar,
         localStorageDelete,
         showedToast,
