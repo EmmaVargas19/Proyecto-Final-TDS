@@ -101,6 +101,14 @@ function localStorageDonados2(usuario, obj){
     dataParsed.donados = obj
     localStorage.setItem(usuario, JSON.stringify(dataParsed))
 }
+
+function localStorageDonados3(obj){
+    const data = localStorage.getItem(user)
+    const dataParsed = JSON.parse(data)
+    dataParsed.donaciones = obj
+    localStorage.setItem(user, JSON.stringify(dataParsed))
+}
+
 function localStorageOng(obj){
     const data = localStorage.getItem(ong);
     const dataParsed = JSON.parse(data);
@@ -176,6 +184,7 @@ return (
         localStorageDonar,
         localStorageDonados,
         localStorageDonados2,
+        localStorageDonados3,
         localStorageOng,
         IsOng, setIsOng,
         localStorageGetBorrar,

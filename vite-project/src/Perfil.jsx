@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export function Perfil() {
-    const { user,setUser ,password,setPassword, confirmPassword, setConfirmPassword, setNewPassword,setLogged, localStorageDelete, localStorageDonados,localStorageDonados2 ,localStorageGet,localStorageSavePassword, localStorageFoto,toastifye, toastifys,foto ,setFoto} = useContext(contextName);
+    const { user,setUser ,password,setPassword, confirmPassword, setConfirmPassword, setNewPassword,setLogged, localStorageDelete, localStorageDonados,localStorageDonados2 ,localStorageGet,localStorageSavePassword, localStorageFoto,toastifye, toastifys,foto ,setFoto, localStorageDonados3} = useContext(contextName);
     const [dispositivosDonados, setDispositivosDonados] = useState(localStorageGet().donados || []); // Crea un estado para almacenar los dispositivos donados (inicialmente vacío
     const [donaciones, setDonaciones] = useState(localStorageGet().donaciones || []); // Crea un estado para almacenar las donaciones (inicialmente vacío)
     const [ongValue, setOngValue] = useState(localStorageGet().ongValue || false); // Crea un estado para almacenar el valor de la ong seleccionada en el formulario de donación
@@ -56,14 +56,20 @@ export function Perfil() {
         const traerparse = JSON.parse(traer);
         const resultado = traerparse.donados.map((e)=> id === e.id ? {...e, statusDonacion: "aceptado"} : e);
         console.log(resultado)
+        const ejem = donaciones.map((e)=> e.donante === donante ? {...e, donacion: resultado} : e);
+        setDonaciones(ejem)
         localStorageDonados2(donante, resultado);
+        localStorageDonados3(ejem);
     }
 
     function rechazar(donante, id){
         const traer = localStorage.getItem(donante);
         const traerparse = JSON.parse(traer);
         const resultado = traerparse.donados.map((e)=> id === e.id ? {...e, statusDonacion: "rechazado"} : e);
+        const ejem = donaciones.map((e)=> e.donante === donante ? {...e, donacion: resultado} : e);
+        setDonaciones(ejem)
         localStorageDonados2(donante, resultado);
+        localStorageDonados3(ejem);
     }
     const mapeoDonados = dispositivosDonados.map((e) => {
         return (
@@ -96,7 +102,10 @@ export function Perfil() {
                 <p>Descripcion: {donacion.descripcion}</p>
                 <p>Modelo: {donacion.modelo}</p>
                 <p>Donacion a la ong: {donacion.ong}</p>
-                <p>Estado: {donacion.statusDonacion}</p>
+                <p>Estado: <span style={{color: donacion.statusDonacion === "aceptado" ? "green" : "red"}}>
+                {donacion.statusDonacion}
+                </span>
+                </p>
                 <button onClick={()=> aceptar(donante.donante, donacion.id)}>Aceptar</button>
                 <button onClick={()=> rechazar(donante.donante, donacion.id)}>Rechazar</button>
             </div>
