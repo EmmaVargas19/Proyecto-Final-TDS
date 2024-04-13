@@ -74,17 +74,7 @@ console.log(selectedValue)
                 <option className="option" value="mouse">mouse</option>
                 <option className="option" value="otros">otros</option>
               </select>
-              {selectedValue === "otros" && (
-                <div className="otros-container">
-                  {/* <label htmlFor="otro">Dispositivo</label> */}
-                  <i class='bx bx-devices' id="devices"></i>
-                  <input type="text" id="otro" placeholder="Dispositivo" className="otros-input" value={otro} onChange={(e) => setOtro(e.target.value)} />
-                  
-                  {/* <label htmlFor="textArea">Descripción</label> */}
-                  <i class='bx bx-message-rounded-dots' id="description"></i>
-                  <textarea id="textArea" placeholder="Descripción" className="otros-textarea" value={textArea} onChange={(e) => setTextArea(e.target.value)}></textarea>
-                </div>
-              )}
+              {selectedValue === "otros" && <Otros/>}
               <div className="form-checkbox">
                 <input type="checkbox" id="modelo-checkbox" checked={isChecked} onChange={handleCheckboxChange} value={isChecked} />
                 <label htmlFor="modelo-checkbox">Click Para agregar modelo</label>

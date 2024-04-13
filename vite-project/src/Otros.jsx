@@ -3,16 +3,14 @@ import { contextName } from "./context/MyContext"
 export function Otros() {
     const {otro, setOtro, textArea, setTextArea} = useContext(contextName)
     return (
-<>
-    <input type="text" placeholder="Dispositivo" id="id-select" value={otro} onInput={(e) => setOtro(e.target.value)} />
-    <textarea 
-    value={textArea} // Establecemos el valor del textarea como el valor del estado
-    onInput={(e)=> setTextArea(e.target.value)} // Asignamos la función de manejo de cambios
-    placeholder="Descripción" // Establecemos un placeholder
-    rows={4} // Número de filas
-    cols={20} // Número de columnas
-    style={{resize: 'none'}} // Deshabilitamos la redimensión del textarea
-    />
-</>
-    )
+                <div className="otros-container">
+                  {/* <label htmlFor="otro">Dispositivo</label> */}
+                  <i class='bx bx-devices' id="devices"></i>
+                  <input type="text" id="otro" placeholder="Dispositivo" className="otros-input" value={otro} onChange={(e) => setOtro(e.target.value)} />
+                  
+                  {/* <label htmlFor="textArea">Descripción</label> */}
+                  <i class='bx bx-message-rounded-dots' id="description"></i>
+                  <textarea id="textArea" placeholder="Descripción" className="otros-textarea" value={textArea} onChange={(e) => setTextArea(e.target.value)}></textarea>
+                </div>
+              )
 }
