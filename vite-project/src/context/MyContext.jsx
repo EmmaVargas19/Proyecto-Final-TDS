@@ -21,11 +21,12 @@ const [modelo, setModelo] = useState('');
 const [selectedValue, setSelectedValue] = useState('');
 const [otro, setOtro] = useState('');
 const [ong,setOng] = useState("")
+const [IsOng, setIsOng] = useState(false);
 const [textArea, setTextArea] = useState('');
 const [isChecked, setIsChecked] = useState(false);
-
+console.log("Soy Ong")
+console.log(IsOng)
 const navigate = useNavigate();
-
 useEffect(() => {
     if(user !== ""){
         localStorage.setItem("preU", user);
@@ -100,6 +101,14 @@ function localStorageDonados2(usuario, obj){
     dataParsed.donados = obj
     localStorage.setItem(usuario, JSON.stringify(dataParsed))
 }
+
+function localStorageDonados3(obj){
+    const data = localStorage.getItem(user)
+    const dataParsed = JSON.parse(data)
+    dataParsed.donaciones = obj
+    localStorage.setItem(user, JSON.stringify(dataParsed))
+}
+
 function localStorageOng(obj){
     const data = localStorage.getItem(ong);
     const dataParsed = JSON.parse(data);
@@ -175,7 +184,9 @@ return (
         localStorageDonar,
         localStorageDonados,
         localStorageDonados2,
+        localStorageDonados3,
         localStorageOng,
+        IsOng, setIsOng,
         localStorageGetBorrar,
         localStorageDelete,
         showedToast,
