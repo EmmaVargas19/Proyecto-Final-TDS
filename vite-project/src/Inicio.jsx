@@ -34,11 +34,11 @@ const localStorageSize = calculateLocalStorageSize();
 const localStorageSizeKB = localStorageSize / 1024;
 console.log("Tamaño aproximado de localStorage:", localStorageSizeKB.toFixed(2), "KB");
   const images = [
-    {img: "/assets/img1.jpeg", message: "Transformando dispositivos olvidados en oportunidades renovadas.", id: 1},
+    {img: "src/assets/img1.png", message: "Transformando dispositivos olvidados en oportunidades renovadas.", id: 1},
     {img: "/assets/img2.jpeg", message: "Unidos por un futuro más sostenible y tecnológicamente inclusivo." , id: 2},
     {img: "/assets/img3.jpeg", message: "Cada dispositivo cuenta: ¡Únete a nuestra misión de renovación!" , id: 3},
     {img: "/assets/img4.jpeg", message: "Innovación con propósito: ¡Juntos, podemos hacer la diferencia!" , id: 4},
-    {img: "/assets/img5.jpeg", message: "Deja tu huella digital en el camino hacia la renovación tecnológica." , id: 5}
+    {img: "src/assets/img5(1).jpg", message: "Deja tu huella digital en el camino hacia la renovación tecnológica." , id: 5}
     ];
 
 
