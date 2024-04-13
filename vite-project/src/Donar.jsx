@@ -45,40 +45,46 @@ console.log(localStorage.getItem(ong))
 console.log(selectedValue)
   return (
     <div className="donar-container">
-      <div className="left-image-container">
-        <img src="src/img/donaciones.png" alt="izquierda" className="left-image" />
-      </div>
-
       <div className="form-container">
         <form onSubmit={handleSubmit}>
           <div className="form-content">
             <div className="form-content-background">
               <h1>Donar</h1>
               <div className="form-input">
-                <box-icon type='solid' name='building'></box-icon>
+                <box-icon type='solid' name='building' color="#fff"></box-icon>
                 <input type="text" placeholder="Nombre Del Negocio" onInput={(e)=> setNombreNegocio(e.target.value)} value={nombreNegocio}/>
               </div>
               <div className="form-input">
-                <box-icon name='location-plus' type='solid'></box-icon>
-                <input type="text" placeholder="Direccion" onInput={(e)=> setDireccion(e.target.value)} value={direccion}/>
+                <box-icon name='location-plus' type='solid' color="#fff"></box-icon>
+                <input type="text" placeholder="Dirección" onInput={(e)=> setDireccion(e.target.value)} value={direccion}/>
               </div>
               <select value={ong} onChange={handleChangeOng} className="form-select">
-                <option value="">Ong donde quiero donar</option>
-                <option value="DMAA">EcoElectrónica</option>
-                <option value="MPMC">RafaPC</option>
-                <option value="SBH">ElectroCompu</option>
-                <option value="IVN">CompuCentro</option>
+                <option className="option" value="">Ong donde quiero donar</option>
+                <option className="option" value="DMAA">EcoElectrónica</option>
+                <option className="option" value="MPMC">RafaPC</option>
+                <option className="option" value="SBH">ElectroCompu</option>
+                <option className="option" value="IVN">CompuCentro</option>
               </select>
               <select value={selectedValue} onChange={handleChange} className="form-select">
-                <option value="">Selecciona un dispositivo a donar</option>
-                <option value="teléfono">telefono</option>
-                <option value="computadora">computadora</option>
-                <option value="tableta">tableta</option>
-                <option value="teclado">teclado</option>
-                <option value="mouse">mouse</option>
-                <option value="otros">otros</option>
+                <option className="option" value="">Selecciona un dispositivo a donar</option>
+                <option className="option" value="teléfono">telefono</option>
+                <option className="option" value="computadora">computadora</option>
+                <option className="option" value="tableta">tableta</option>
+                <option className="option" value="teclado">teclado</option>
+                <option className="option" value="mouse">mouse</option>
+                <option className="option" value="otros">otros</option>
               </select>
-              {selectedValue === "otros" && <Otros/>}
+              {selectedValue === "otros" && (
+                <div className="otros-container">
+                  {/* <label htmlFor="otro">Dispositivo</label> */}
+                  <i class='bx bx-devices' id="devices"></i>
+                  <input type="text" id="otro" placeholder="Dispositivo" className="otros-input" value={otro} onChange={(e) => setOtro(e.target.value)} />
+                  
+                  {/* <label htmlFor="textArea">Descripción</label> */}
+                  <i class='bx bx-message-rounded-dots' id="description"></i>
+                  <textarea id="textArea" placeholder="Descripción" className="otros-textarea" value={textArea} onChange={(e) => setTextArea(e.target.value)}></textarea>
+                </div>
+              )}
               <div className="form-checkbox">
                 <input type="checkbox" id="modelo-checkbox" checked={isChecked} onChange={handleCheckboxChange} value={isChecked} />
                 <label htmlFor="modelo-checkbox">Click Para agregar modelo</label>

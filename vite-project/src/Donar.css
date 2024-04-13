@@ -1,101 +1,100 @@
 .donar-container {
-    display: flex;
-    height: 100%;
-    font-family: "Poppins", sans-serif;
-    background-color: #c5fac7;
-  }
+  display: flex;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+  background-image: url("src/img/donaciones.png");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+.form-container {
+  width: 100%;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 20px;
+
+}
   
-  .left-image-container {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.form-content-background {
+  background-color: rgba(18, 97, 39, 0.421);
+  border: 2px solid #fff; 
+  width: 400px; 
+  height: 100%; 
+  padding-bottom: 20px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-content h1 {
+  padding-top: 10px;
+  margin-top: 20px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
   
-  .left-image {
-    width: 100%;
-    height: 900px;
-    margin-top: 2px;
-    background-color: #c5fac7;
-  }
-  
-  .form-container {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .form-content {
-    width: 80%;
-    padding: 20px;
-    margin-left: 0;
-  }
-  
-  .form-content-background {
-    background-color: #f8f8f8;
-    width: 500px;
-    height: 500px;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(7, 145, 17, 0.242), 0 6px 6px rgba(7, 145, 17, 0.242);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .form-content h1 {
-    padding-top: 10px;
-    margin-top: 20px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.5rem;
-    color: #010f08;
-    margin-bottom: 20px;
-  }
-  
-  .form-input {
+.form-input {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
   margin-top: 20px;
-  width: 70%;
+  width: 90%;
   position: relative;
+  border-bottom: 2px solid #fff;
 }
   
 .form-input input {
   width: 100%;
   padding: 10px;
-  background-color: #fff;
-  color: #010f08;
+  background-color: rgba(18, 97, 39, 0.017);
+  color: #ffffff;
   border: none;
   outline: none;
   border-radius: 20px;
   font-size: 1rem;
-  padding-left: 50px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
-}
+  padding-left: 30px;
   
+  
+}
+
+.form-input input:placeholder-shown{
+  font-size: 17px;
+  font-weight: bold;
+}
+
+
 .form-input box-icon {
   position: absolute;
-  left: 15px;
   top: 50%;
-  transform: translateY(-50%);
-  color: #010f08;
+  transform: translateY(-60%);
 }
+
   
 .form-select {
-  width: 50%;
-   padding: 10px;
+  width: 90%;
+  padding: 10px;
+  text-align: center;
   margin-top: 20px;
   background-color: green;
   color: #fff;
   border: none;
   outline: none;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 1rem;
   margin-bottom: 20px;
+  
 }
+
 /*   
   form-checkbox {
     display: flex;
@@ -105,10 +104,12 @@
   } */
   
 .form-checkbox input {
-    margin-right: 10px;
-    width: 20px;
-    height: 20px;
-    margin-top: 7px;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  margin-top: 7px;
+  background: #fff;
+  color: #000;
 }
   
 .form-checkbox input:checked {
@@ -117,35 +118,95 @@
 }
   
 .form-checkbox label {
-    margin-bottom: 10px;
-    margin-top: 10px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    justify-content: space-between;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  justify-content: space-between;
   
 }
   
 #id-checkbox {
-  width: 65%;
+  width: 90%;
   height: 40px;
-  background-color: #fff;
-  color: #010f08;
-  border-radius: 20px;
+  background-color: rgba(18, 97, 39, 0.017);
+  color: #fff;
   border: none;
   outline: none;
-  padding-left: 30px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+  border-bottom: 2px solid #fff;
+  padding-left: 10px;
 }
-  
+
+#id-checkbox:placeholder-shown{
+  font-weight: bold;
+  font-size: 17px;
+}
+
 .form-checkbox input:checked + label:after {
   content: "✔";
   position: relative;
   top: -1px;
   font-size: 1.3rem;
 }
-   
+
+#description{
+  position: absolute;
+  top: 100%;
+  transform: translateY(-50%);
+  font-size: 25px;
+}
+
+#devices{
+  position: absolute;
+  top: 100%;
+  transform: translateY(-255%);
+  font-size: 25px;
+}
+.otros-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 90%;
+}
+
+.otros-input {
+  height: 40px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  background-color: rgba(18, 97, 39, 0.017);
+  color: #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.otros-input:placeholder-shown{
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.otros-textarea {
+  height: 100px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  background-color: rgba(18, 97, 39, 0.017);
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  resize: none;
+  
+}
+
+.otros-textarea:placeholder-shown{
+  font-size: 17px;
+  font-weight: bold;
+}
+
 .form-checkbox input {
   opacity: 0;
   position: absolute;
@@ -196,7 +257,7 @@
   width: 25%;
   padding: 10px;
   margin-top: 20px;
-  background-color: #010f08;
+  background-color: green;
   color: #f8f8f8;
   border: none;
   border-radius: 20px;
@@ -204,5 +265,7 @@
 }
   
 .form-button:hover {
-    background-color: #a7a7a7;
+    background-color: gray;
+    color: #fff;
+    transition: 0.3ms;
 }

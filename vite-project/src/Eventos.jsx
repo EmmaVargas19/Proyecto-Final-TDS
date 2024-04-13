@@ -25,7 +25,7 @@ const [eventosInscritos, setEventosInscritos] = useState(initialEventosInscritos
         { name: "Repara y salva el planeta", date: "2025-10-13", description: "Te invitamos a nuestro taller de reparación de dispositivos electrónicos, donde aprenderás habilidades prácticas para alargar la vida útil de tus dispositivos y reducir el desperdicio electrónico. ¡Empodérate para ser parte de la solución! Ciclo de Cine Ambiental: Inspirando Acción para la Conservación del Planeta",
         img: "src/assets/img4.jpeg", id: 4 },
         { name: "Cine ambiente", date: "2025-10-14", description: "Acompáñanos en nuestro ciclo de cine ambiental mensual, donde proyectaremos documentales inspiradores sobre la conservación del medio ambiente y el impacto de nuestras acciones en el planeta. ¡Una noche de cine con conciencia!",
-        img: "src/assets/img5.jpeg", id: 5 }
+        img: "src/assets/img5(1).jpg", id: 5 }
     ];
 console.log(events)
 console.log("soy eventos")
@@ -81,7 +81,7 @@ console.log(mostrar)
             <h3>{obj.name}</h3>
             <p>Fecha: {obj.date}</p>
             <p>{obj.description}</p>
-            <button onClick={() => saber(obj) ? toastifye("Ya estas inscrito a este evento") : handleInscribirse(obj)}>{saber(obj) ? "Inscrito" : "Inscribirse"}</button>
+            <button className="inscribirse" onClick={() => saber(obj) ? toastifye("Ya estas inscrito a este evento") : handleInscribirse(obj)}>{saber(obj) ? "Inscrito" : "Inscribirse"}</button>
         </div>
 )})
     const mapeoEventosInscritos = eventosInscritos.map((obj) => (
@@ -90,7 +90,7 @@ console.log(mostrar)
             <h3>{obj.name}</h3>
             <p>Fecha: {obj.date}</p>
             <p>{obj.description}</p>
-            <button onClick={()=> handleBorrar(obj)}>Borrar evento</button>
+            <button className="inscribirse" onClick={()=> handleBorrar(obj)}>Borrar evento</button>
         </div>
     ));
 
@@ -100,10 +100,11 @@ console.log(mostrar)
             @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')
             </style>
 
-            <h2>Eventos Activos</h2>
+            <h2 id="evento-activo">Eventos Activos</h2>
             <div className='gridejem'>
                 {mapeo}
             </div>
+
             <h2>Eventos donde estoy inscrito</h2>
             <div className={user && logged && eventosInscritos.lengt !== 0 ? "gridejem" : "normal"}>
                 {user && logged && eventosInscritos.length !== 0 ? mapeoEventosInscritos : <NoEventos />}

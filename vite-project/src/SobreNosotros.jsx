@@ -32,12 +32,12 @@ useEffect(()=>{
         <p>Nuestra misión en RenovaTech es promover la gestión responsable de los residuos electrónicos en la República Dominicana, fomentando la conciencia ambiental y facilitando la recolección, reciclaje y reutilización de dispositivos electrónicos obsoletos. Nos comprometemos a proteger el medio ambiente y la salud pública mediante la implementación de programas y proyectos sostenibles que reduzcan el impacto negativo de los residuos electrónicos en nuestra sociedad.</p>
       </article>
       <section className='ejemm-img'>
-        <img src="/src/assets/mision.jpeg" alt="" />
+        <img src="/src/assets/mision.png" alt="" id='mision-img' />
       </section>
       </section>
       <section className='ejemm hidden' id='vision'>
       <section className='ejemm-img'>
-        <img src="/src/assets/vision.jpeg" alt="" />
+        <img src="/src/assets/vision.png" alt="" id='vision-img'/>
       </section>
       <article className="articulo">
         <h2 id='vision'>Vision</h2>
@@ -56,7 +56,7 @@ useEffect(()=>{
         </ul>
       </article>
       <section className='ejemm-img'>
-          <img src="/src/assets/valores.jpeg" alt="" />
+          <img src="/src/assets/valores.png" alt="" id='valores-img'/>
         </section>
       </section>
     </section>
