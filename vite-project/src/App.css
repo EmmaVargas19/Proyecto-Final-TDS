@@ -193,8 +193,11 @@ toma el espacio disponible 100 de width o height? si dependiendo de la direccion
 
 .inscribirse{
   background: #0aa20f;
+  margin-top: 25px;
+  padding-top: 10px;
   transition: 0.2ms;
   color: #fff;
+  border: none;
 }
 
 .inscribirse:hover{
@@ -225,6 +228,7 @@ toma el espacio disponible 100 de width o height? si dependiendo de la direccion
 .next-button:hover {
   color: white;
 }
+
 
 .evento {
   border-radius: 10px;
