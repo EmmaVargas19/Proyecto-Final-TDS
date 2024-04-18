@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'; // Importa useNavigate desde rea
 import { contextName } from './context/MyContext.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './perfil.css';
 
 export function Perfil() {
     const { user,setUser ,password,setPassword, confirmPassword, setConfirmPassword, setNewPassword,setLogged, localStorageDelete, localStorageDonados,localStorageDonados2 ,localStorageGet,localStorageSavePassword, localStorageFoto,toastifye, toastifys,foto ,setFoto, localStorageDonados3} = useContext(contextName);
@@ -115,38 +116,57 @@ export function Perfil() {
     
     return (
         <div className='perfil'>
-            <h2>Perfil</h2>
-            <p>Foto de perfil:</p>
-            {foto ? <img src={foto} alt="Foto de perfil" width="200" height="300"/> : <img src={localStorageGet()  && localStorageGet().foto} alt="Foto de perfil" width="800" height="300"/>}
-            <input type="file" onChange={(event) => {
-                const archivo = event.target.files[0];
-                if (archivo) {
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        const fotoDataURL = e.target.result;
-                        setFoto(fotoDataURL);
-                    };
-                    reader.readAsDataURL(archivo);
-                }
-            }} />
-            <button onClick={localStorageFoto}>Guardar foto</button>
-            <p>Nombre: {localStorageGet()  && localStorageGet().nombre}</p>
-            <p>Nombre de usuario: {user}</p>
-            <p>Cambiar Contraseña</p>
-            <input type="password" placeholder="Contraseña Nueva" onInput={(e)=> setNewPassword(e.target.value)}/>
-            <br />
-            <input type="password" placeholder="Actual contraseña" onInput={(e)=> setPassword(e.target.value)}/>
-            <br />
-            <input type="password" placeholder="Repetir contraseña actual" onInput={(e)=> setConfirmPassword(e.target.value)}/>
-            <br />
-            <button onClick={cambiarPass}>Guardar</button>
-            <button onClick={handleDeleteProfilePop}>Borrar perfil</button>
-            {borrarPerfil && <div><p>¿Estás seguro de que deseas borrar tu perfil?</p><button onClick={handleDeleteProfile}>Sí</button><button onClick={handleDeleteProfilePop}>No</button></div>}
-            <h2>Dispositivos donados</h2>
-            <div className='gridejem'>
-                {ongValue ? donacionesRecibidas : mapeoDonados}
+            <div className='banner'>
+                <h2>Este es su perfil</h2>
+                <p>Aquí podrás ver sus datos y donaciones</p>
+            </div>
+            <div className="perfil-usuario">
+                <div className="image-fondo">
+                    <img src="src/img/foto-dondo-perfil.png" alt="" />
+                </div> 
+                {foto ? <img src={foto || "src/img/user.webp"} id='foto-perfil-ususario' alt="Foto de perfil" width="200" height="300"/> : <img src={localStorageGet()  && localStorageGet().foto} alt="Foto de perfil" width="800" height="300"/>}
+                <label className="input-container">
+                    <input className='archivo' type="file"  onChange={(event) => {
+                        const archivo = event.target.files[0];
+                        if (archivo) {
+                            const reader = new FileReader();
+                            reader.onload = (e) => {
+                                const fotoDataURL = e.target.result;
+                                setFoto(fotoDataURL);
+                            };
+                            reader.readAsDataURL(archivo);
+                        }
+                    }} />
+                    <i className="bx bxs-camera"></i>
+                </label>
+                <button id='guardar-foto' onClick={localStorageFoto}>Guardar foto</button>
+                <div className="credenciales">
+                    <h2 className='usuario'>Perfil</h2>
+                    <p className='usuario'><b>Nombre:</b> {localStorageGet()  && localStorageGet().nombre}</p>
+                    <p className='usuario'><b>Nombre de usuario:</b> {user}</p>
+                    <p className='usuario' ><b>Cambiar Contraseña</b></p>
+                    <i className="bx bx-lock-alt"></i>
+                    <input type="password" placeholder="Contraseña Nueva" onInput={(e)=> setNewPassword(e.target.value)}/>
+                    <br />
+                    <i className="bx bx-lock-alt"></i>
+                    <input type="password" placeholder="Actual contraseña" onInput={(e)=> setPassword(e.target.value)}/>
+                    <br />
+                    <i className="bx bx-lock-alt"></i>
+                    <input type="password" placeholder="Repetir contraseña actual" onInput={(e)=> setConfirmPassword(e.target.value)}/>
+                    <br />
+                    <div className="botones-credenciales">
+                        <button onClick={cambiarPass} className="guardar-perfil-1" >Guardar</button>
+                        <button onClick={handleDeleteProfilePop}className="guardar-perfil-1">Borrar perfil</button>
+                    </div>
+                    {borrarPerfil && <div ><p>¿Estás seguro de que deseas borrar tu perfil?</p><button onClick={handleDeleteProfile} className="guardar-perfil-2">Sí</button><button onClick={handleDeleteProfilePop} className="guardar-perfil-2">No</button></div>}
                 </div>
-        <ToastContainer />
+               
+                <h2 id='ver-dispositivos-donados'>Dispositivos donados</h2>
+                <div className='gridejem-perfil'>
+                    {ongValue ? donacionesRecibidas : mapeoDonados}
+                </div>
+                <ToastContainer />    
+            </div>
         </div>
     );
 }
