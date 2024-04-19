@@ -102,6 +102,12 @@ toma el espacio disponible 100 de width o height? si dependiendo de la direccion
   font-size: 40px;
 }
 
+#evento-inscrito{
+  text-align: center;
+  padding: 20px;
+  font-size: 40px;
+}
+
 
 #mision-img{
   height: 120%;
@@ -186,9 +192,12 @@ toma el espacio disponible 100 de width o height? si dependiendo de la direccion
 }
 
 .no-eventos {
-  text-align: center;
   width: 100%;
   color: gray;
+  text-align: center;
+  padding: 20px;
+  margin-left: 50%;
+  font-size: 20px;
 }
 
 .inscribirse{
@@ -378,6 +387,18 @@ toma el espacio disponible 100 de width o height? si dependiendo de la direccion
   color: #fff;
 }
 
+@media (max-width: 768px) {
+  .no-eventos {
+    font-size: 30px; 
+    margin-left: 0; 
+  }
+
+  #evento-activo {
+    font-size: 20px; 
+  }
+}
+
+
 
 @media screen and (max-width: 800px) {
   .footerContainer .grupo-1 {
@@ -393,6 +414,16 @@ toma el espacio disponible 100 de width o height? si dependiendo de la direccion
   }
 }
 
+@media screen and (min-width: 1080px) and (max-width: 1920px){
+  .no-eventos {
+    font-size: 25px; 
+    margin-left: 100%; 
+  }
+
+  #evento-activo {
+    font-size: 40px; 
+  }
+}
 
 @media screen and (min-width: 800px) and (max-width: 1199px) {
   .footerContainer .grupo-1 {
