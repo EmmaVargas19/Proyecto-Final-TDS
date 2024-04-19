@@ -113,7 +113,6 @@ export function Perfil() {
         ))
     ));
     
-    
     return (
         <div className='perfil'>
             <div className='banner'>
@@ -124,9 +123,9 @@ export function Perfil() {
                 <div className="image-fondo">
                     <img src="src/img/foto-dondo-perfil.png" alt="" />
                 </div> 
-                {foto ? <img src={foto || "src/img/user.webp"} id='foto-perfil-ususario' alt="Foto de perfil" width="200" height="300"/> : <img src={localStorageGet()  && localStorageGet().foto} alt="Foto de perfil" width="800" height="300"/>}
+                {foto ? <img src={foto}  alt="Foto de perfil" width="200" height="300"/> : <img src={localStorageGet()  && localStorageGet().foto} id='foto-perfil-ususario' alt="Foto de perfil" width="800" height="300"/>}
                 <label className="input-container">
-                    <input className='archivo' type="file"  onChange={(event) => {
+                    <input type="file" className='archivo' onChange={(event) => {
                         const archivo = event.target.files[0];
                         if (archivo) {
                             const reader = new FileReader();
@@ -139,7 +138,7 @@ export function Perfil() {
                     }} />
                     <i className="bx bxs-camera"></i>
                 </label>
-                <button id='guardar-foto' onClick={localStorageFoto}>Guardar foto</button>
+                <button onClick={localStorageFoto} id='guardar-foto'>Guardar foto</button>
                 <div className="credenciales">
                     <h2 className='usuario'>Perfil</h2>
                     <p className='usuario'><b>Nombre:</b> {localStorageGet()  && localStorageGet().nombre}</p>
@@ -148,24 +147,22 @@ export function Perfil() {
                     <i className="bx bx-lock-alt"></i>
                     <input type="password" placeholder="Contraseña Nueva" onInput={(e)=> setNewPassword(e.target.value)}/>
                     <br />
-                    <i className="bx bx-lock-alt"></i>
                     <input type="password" placeholder="Actual contraseña" onInput={(e)=> setPassword(e.target.value)}/>
                     <br />
-                    <i className="bx bx-lock-alt"></i>
                     <input type="password" placeholder="Repetir contraseña actual" onInput={(e)=> setConfirmPassword(e.target.value)}/>
                     <br />
                     <div className="botones-credenciales">
-                        <button onClick={cambiarPass} className="guardar-perfil-1" >Guardar</button>
-                        <button onClick={handleDeleteProfilePop}className="guardar-perfil-1">Borrar perfil</button>
+                        <button onClick={cambiarPass} className="guardar-perfil-1">Guardar</button>
+                        <button onClick={handleDeleteProfilePop} className="guardar-perfil-1">Borrar perfil</button>
                     </div>
-                    {borrarPerfil && <div ><p>¿Estás seguro de que deseas borrar tu perfil?</p><button onClick={handleDeleteProfile} className="guardar-perfil-2">Sí</button><button onClick={handleDeleteProfilePop} className="guardar-perfil-2">No</button></div>}
+                    {borrarPerfil && <div><p>¿Estás seguro de que deseas borrar tu perfil?</p><button onClick={handleDeleteProfile} className='guardar-perfil-2'>Sí</button><button onClick={handleDeleteProfilePop} className='guardar-perfil-2'>No</button></div>}
                 </div>
                
                 <h2 id='ver-dispositivos-donados'>Dispositivos donados</h2>
                 <div className='gridejem-perfil'>
                     {ongValue ? donacionesRecibidas : mapeoDonados}
-                </div>
-                <ToastContainer />    
+                    </div>
+             <ToastContainer />
             </div>
         </div>
     );

@@ -85,7 +85,7 @@
   padding: 10px;
   text-align: center;
   margin-top: 20px;
-  background-color: #0aa20f;
+  background-color: green;
   color: #fff;
   border: none;
   outline: none;
@@ -257,8 +257,8 @@
   width: 25%;
   padding: 10px;
   margin-top: 20px;
-  background-color: #0aa20f;
-  color: #ffffff;
+  background-color: green;
+  color: #f8f8f8;
   border: none;
   border-radius: 20px;
   cursor: pointer;
