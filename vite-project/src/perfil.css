@@ -49,7 +49,7 @@
     border-radius: 10px 5px 5px 10px;
 }
 
-#foto-perfil-ususario {
+.foto-perfil-ususario {
     width: 250px;
     height: 250px;
     transform: translateY(-60%);

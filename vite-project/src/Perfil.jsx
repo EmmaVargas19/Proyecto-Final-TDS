@@ -126,7 +126,7 @@ export function Perfil() {
                 <div className="image-fondo">
                     <img src="src/img/foto-dondo-perfil.png" alt="" />
                 </div> 
-                {foto ? <img src={foto}  alt="Foto de perfil" width="200" height="300"/> : <img src={localStorageGet()  && localStorageGet().foto} id='foto-perfil-ususario' alt="Foto de perfil" width="800" height="300"/>}
+                {foto ? <img src={foto}  alt="Foto de perfil" width="200" height="300" className='foto-perfil-ususario'/> : <img src={localStorageGet()  && localStorageGet().foto} className='foto-perfil-ususario' alt="Foto de perfil" width="800" height="300"/>}
                 <label className="input-container">
                     <input type="file" className='archivo' onChange={(event) => {
                         const archivo = event.target.files[0];

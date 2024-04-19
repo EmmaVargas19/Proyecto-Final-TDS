@@ -48,7 +48,7 @@ function normal (){
 }
 
 function localStorageSave (){
-    localStorage.setItem(`${user}`, JSON.stringify({foto, nombre, password, inscrito: [], donados: []}));
+    localStorage.setItem(`${user}`, JSON.stringify({foto: "src/img/user.webp", nombre, password, inscrito: [], donados: []}));
 }
 
 function localStorageFoto() {
