@@ -1,0 +1,292 @@
+.perfil {
+    font-family: "Poppins", sans-serif;
+    width: 80%;
+    margin: 0;
+}
+
+.banner{
+    background-color: #08810cea;
+    margin-left: 30px;
+    width: 120%;
+    border-radius: 20px;
+    height: 400px;
+    margin-top: 20px;
+}
+
+.banner h2{
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 30px;
+}
+
+.banner p{
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 20px;
+}
+.perfil-usuario {
+    width: 80%;
+    margin: 0 auto;
+    margin-left: 20%;
+    transform: translateY(-12%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 0 3px 1px rgba(13, 89, 3, 0.548);
+    border-radius: 10px 5px 5px 10px;
+}
+
+.image-fondo img{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    border-radius: 10px 5px 5px 10px;
+}
+
+#foto-perfil-ususario {
+    width: 250px;
+    height: 250px;
+    transform: translateY(-60%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid #0aa20f;
+}
+
+.perfil-usuario .usuario h2 {
+    font-size: 30px;
+    color: #000;
+    padding: 50px;
+    text-align: center;
+}
+
+.perfil-usuario .usuario p {
+    font-size: 50px;
+    color: #000;
+    text-align: left;
+}
+
+.archivo{
+    align-items: right;
+    justify-content: right; 
+    opacity: 0;
+    cursor: pointer;
+}
+
+.input-container {
+    position: relative;
+    display: inline-block;
+}
+
+.input-container .bx {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 8px;
+    margin-left: 60%;
+    transform: translateY(-475%);
+    font-size: 25px;
+    background-color: #0aa20f;
+    border-radius: 25px;
+    border: 2px green solid ;
+    color: #fff;
+    cursor: pointer;
+    
+}
+.input-container .bx:hover{
+    background-color: green;
+    transition: 0.3ms;
+}
+
+.perfil input[type="file"] {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.perfil button {
+    background-color: #0aa20f;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.perfil button:hover {
+    background-color: green;
+}
+
+.perfil #guardar-foto{
+    display: flex;
+    justify-content: right;
+    transform: translateY(-650%);
+    align-items: right;
+    margin-left: 75%;
+}
+
+
+.credenciales{
+    width: 60%;
+    height: 500px;
+    transform: translateY(-40%);
+    border-radius: 10px 5px 5px 10px;
+    box-shadow: 0 0 3px 1px rgba(13, 89, 3, 0.548);
+    
+}
+
+.credenciales h2{
+    text-align: center;
+    margin: 20px;
+}
+
+.credenciales p{
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    font-size: 20px;
+    margin: 10px;
+    padding: 5px;
+}
+
+.credenciales input{
+    font-family: "Poppins", sans-serif;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 50px;
+    padding: 10px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-bottom: 1px #000 solid;
+}
+
+.credenciales i{
+    position: absolute;
+    margin: 5px 0 0 50px;
+    font-size: 25px;
+}
+
+.credenciales input:placeholder-shown{
+    text-align: center;
+}
+
+.credenciales button {
+    margin-left: 170px;
+}
+  
+.credenciales .guardar-perfil-1 {
+    margin-left: 200px;
+    margin: 20px;
+    position: relative;
+}
+  
+.credenciales button.guardar-perfil-1:last-child {
+    margin-left: 100px;
+    margin-right: 0;
+}
+  
+.credenciales button.guardar-perfil-1:first-child {
+    margin-left: 0;
+    margin-right: 10px;
+}
+  
+.botones-credenciales {
+    display: flex;
+    justify-content: center;
+    margin-left: 10px; 
+}
+
+#ver-dispositivos-donados{
+    font-size: 40px;
+    transform: translateY(-150%);
+}
+.gridejem-perfil {
+    font-family: "Poppins", sans-serif;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: repeat(2, 50%); 
+    gap: 20px;
+
+}
+
+.gridejem-perfil div {
+    background-color: rgba(128, 128, 128, 0.21);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.gridejem-perfil div img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid #0aa20f;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-bottom: 10%;
+    margin-left: 50px;
+
+}
+
+.gridejem-perfil div p {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.gridejem-perfil div button {
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+    .perfil {
+        width: 100%;
+    }
+
+    .banner {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .perfil-usuario {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .image-fondo img {
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+    }
+
+    .credenciales input,
+    .credenciales button {
+        margin-left: 0;
+    }
+
+    .gridejem-perfil div img {
+        width: 100%;
+        height: auto;
+        margin-left: 0;
+    }
+
+    .credenciales .guardar-perfil-1 {
+        margin-left: 0;
+    }
+
+    .credenciales button.guardar-perfil-1:last-child {
+        margin-left: 0;
+    }
+}
