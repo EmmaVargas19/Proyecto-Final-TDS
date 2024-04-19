@@ -102,6 +102,12 @@ toma el espacio disponible 100 de width o height? si dependiendo de la direccion
   font-size: 40px;
 }
 
+#evento-inscrito{
+  text-align: center;
+  padding: 20px;
+  font-size: 40px;
+}
+
 
 #mision-img{
   height: 120%;
@@ -186,9 +192,13 @@ toma el espacio disponible 100 de width o height? si dependiendo de la direccion
 }
 
 .no-eventos {
-  text-align: center;
   width: 100%;
   color: gray;
+  text-align: center;
+  padding: 20px;
+  margin-left: 50%;
+  font-size: 20px;
+
 }
 
 .inscribirse{
