@@ -7,9 +7,8 @@ import 'boxicons';
 
 
 export function NavBarr() {
-  const {setUser, setPassword, logged, setLogged, setShowedToast, setNombre, IsOng} = useContext(contextName)
+  const {setUser, setPassword, logged, setLogged, setShowedToast, setNombre, IsOng, setIsOng} = useContext(contextName)
   const navigate = useNavigate();
-
   return (
     <>
     <style>
@@ -27,7 +26,7 @@ export function NavBarr() {
     <div className="hijo">
     {logged ? null : <li><Link to={'/register'}>Registrarse</Link></li>}
     {logged ? null : <li><Link to={'/login'}>Iniciar sesión</Link></li>}
-    {logged ? <li><button onClick={()=>{setLogged(false); setUser(""); setPassword(""); setShowedToast(false); setNombre(""); navigate("/"); localStorage.removeItem("preU");
+    {logged ? <li><button onClick={()=>{setLogged(false); setUser(""); setPassword(""); setShowedToast(false); setNombre(""); setIsOng(false); navigate("/"); localStorage.removeItem("preU");
     localStorage.removeItem("preL");}}>Cerrar sesión</button></li> : null}
     {logged ? <li><Link to={'/perfil'}>Mi Perfil</Link></li> : null}
     </div>

@@ -161,7 +161,8 @@ useEffect(() => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("DMAA", JSON.stringify({ongValue: "true", password: "1" ,donaciones: []}))
+    localStorage.setItem("EcoElectronica", JSON.stringify({foto: "src/img/user.webp", ongValue: "true", password: "1234" ,donaciones: []}))
+    localStorage.setItem("RafaPC", JSON.stringify({foto: "src/img/user.webp", ongValue: "true", password: "1234" ,donaciones: []}))
   }, [])
 
 

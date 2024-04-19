@@ -55,12 +55,8 @@ export function Perfil() {
     function aceptar(donante, id){
         const traer = localStorage.getItem(donante);
         const traerparse = JSON.parse(traer);
-        const resultado = traerparse.donados.map((e)=> id === e.id ? {...e, statusDonacion: "aceptado"} : e);
-        console.log("Esto es resultado")
-        console.log(resultado)
-        const ejem = donaciones.map((e)=> e.donante === donante ? {...e, donacion: resultado} : e);
-        console.log("Esto es ejem")
-        console.log(ejem)
+        const resultado = traerparse.donados.map((e)=> e.ong === user && e.id === id ? {...e, statusDonacion: "aceptado"} : e);
+        const ejem = donaciones.map((e)=> e.donante === donante ? {...e, donacion: resultado.filter((e) => e.ong === user)} : e);
         setDonaciones(ejem)
         localStorageDonados2(donante, resultado);
         localStorageDonados3(ejem);
@@ -69,8 +65,8 @@ export function Perfil() {
     function rechazar(donante, id){
         const traer = localStorage.getItem(donante);
         const traerparse = JSON.parse(traer);
-        const resultado = traerparse.donados.map((e)=> id === e.id ? {...e, statusDonacion: "rechazado"} : e);
-        const ejem = donaciones.map((e)=> e.donante === donante ? {...e, donacion: resultado} : e);
+        const resultado = traerparse.donados.map((e)=> e.ong === user && e.id === id ? {...e, statusDonacion: "rechazado"} : e);
+        const ejem = donaciones.map((e)=> e.donante === donante ? {...e, donacion: resultado.filter((e) => e.ong === user)} : e);
         setDonaciones(ejem)
         localStorageDonados2(donante, resultado);
         localStorageDonados3(ejem);

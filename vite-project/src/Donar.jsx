@@ -19,6 +19,7 @@ function handleChangeOng (e){
 const handleCheckboxChange = (e) => {
 setIsChecked(e.target.checked);
 };
+console.log("Soy el valor de ONG")
 console.log(ong)
 function handleSubmit(e) {
     e.preventDefault();
@@ -63,8 +64,8 @@ console.log(selectedValue)
               </div>
               <select value={ong} onChange={handleChangeOng} className="form-select">
                 <option className="option" value="">Ong donde quiero donar</option>
-                <option className="option" value="DMAA">EcoElectrónica</option>
-                <option className="option" value="MPMC">RafaPC</option>
+                <option className="option" value="EcoElectronica">EcoElectrónica</option>
+                <option className="option" value="RafaPC">RafaPC</option>
                 <option className="option" value="SBH">ElectroCompu</option>
                 <option className="option" value="IVN">CompuCentro</option>
               </select>
