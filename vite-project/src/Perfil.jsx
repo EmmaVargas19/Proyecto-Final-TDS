@@ -55,8 +55,11 @@ export function Perfil() {
         const traer = localStorage.getItem(donante);
         const traerparse = JSON.parse(traer);
         const resultado = traerparse.donados.map((e)=> id === e.id ? {...e, statusDonacion: "aceptado"} : e);
+        console.log("Esto es resultado")
         console.log(resultado)
         const ejem = donaciones.map((e)=> e.donante === donante ? {...e, donacion: resultado} : e);
+        console.log("Esto es ejem")
+        console.log(ejem)
         setDonaciones(ejem)
         localStorageDonados2(donante, resultado);
         localStorageDonados3(ejem);
